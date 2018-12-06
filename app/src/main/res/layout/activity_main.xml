@@ -33,22 +33,34 @@
                 android:layout_height="wrap_content">
 
             <android.support.design.widget.TabItem
-                    android:id="@+id/tabItem"
+                    android:id="@+id/tabhome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tab_text_1"/>
+                    android:text="@string/tab_text_home"/>
 
             <android.support.design.widget.TabItem
-                    android:id="@+id/tabItem2"
+                    android:id="@+id/tabotp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tab_text_2"/>
+                    android:text="@string/tab_text_otp"/>
 
             <android.support.design.widget.TabItem
-                    android:id="@+id/tabItem3"
+                    android:id="@+id/tab2kotp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/tab_text_3"/>
+                    android:text="@string/tab_text_2kotp"/>
+
+            <android.support.design.widget.TabItem
+                    android:id="@+id/tabpke"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_text_pke"/>
+
+            <android.support.design.widget.TabItem
+                    android:id="@+id/tabpassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tab_text_password"/>
 
         </android.support.design.widget.TabLayout>
     </android.support.design.widget.AppBarLayout>
