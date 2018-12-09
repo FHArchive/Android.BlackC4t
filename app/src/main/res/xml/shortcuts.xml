@@ -3,7 +3,7 @@
     <shortcut
             android:shortcutId="start"
             android:enabled="true"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_home"
             android:shortcutShortLabel="@string/shortcut_shortname"
             android:shortcutLongLabel="@string/shortcut_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
