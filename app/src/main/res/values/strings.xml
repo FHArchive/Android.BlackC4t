@@ -14,8 +14,10 @@
     <string name="tab_text_password">Pwd. Gen.</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="shortcut_shortname">start</string>
+    <string name="shortcut_longname">long start main method</string>
+    <string name="shortcut_disabled">disabled</string>
 
 
 </resources>
