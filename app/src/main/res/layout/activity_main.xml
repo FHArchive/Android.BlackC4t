@@ -33,31 +33,30 @@
                 android:layout_height="wrap_content">
 
             <android.support.design.widget.TabItem
-                    android:id="@+id/tabhome"
+                    android:id="@+id/tab_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tab_text_home"/>
 
             <android.support.design.widget.TabItem
-                    android:id="@+id/tabotp"
+                    android:id="@+id/tab_otp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tab_text_otp"/>
 
             <android.support.design.widget.TabItem
-                    android:id="@+id/tab2kotp"
+                    android:id="@+id/tab_2kotp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tab_text_2kotp"/>
-
             <android.support.design.widget.TabItem
-                    android:id="@+id/tabpke"
+                    android:id="@+id/tab_pke"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tab_text_pke"/>
 
             <android.support.design.widget.TabItem
-                    android:id="@+id/tabpassword"
+                    android:id="@+id/tab_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tab_text_password"/>
@@ -70,13 +69,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
-    <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/ic_dialog_email"/>
 
 </android.support.design.widget.CoordinatorLayout>
