@@ -130,9 +130,26 @@ public class Main extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
-            // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            // Switch case for each fragment
+            Fragment fragment = null;
+            switch (position){
+                case 0:
+                    fragment = new Frag_Home();
+                    break;
+                case 1:
+                    fragment = new Frag_Home();
+                    break;
+                case 2:
+                    fragment = new Frag_Home();
+                    break;
+                case 3:
+                    fragment = new Frag_Home();
+                    break;
+                case 4:
+                    fragment = new Frag_Home();
+                    break;
+            }
+            return fragment;
         }
 
         @Override
