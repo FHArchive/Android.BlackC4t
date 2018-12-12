@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -146,11 +147,11 @@ public class Main extends AppCompatActivity {
         Get objects, strings and lengths
          */
         EditText message = (EditText) findViewById(R.id.message);
-        String messageString = message.toString();
+        String messageString = message.getText().toString();
         int messageLength = messageString.length();
 
         EditText key = (EditText) findViewById(R.id.key);
-        String keyString = key.toString();
+        String keyString = key.getText().toString();
         int keyLength = keyString.length();
 
         ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
@@ -162,26 +163,35 @@ public class Main extends AppCompatActivity {
         Define other variables
          */
         String outputString = "";
+        boolean error = false;
+
+        /*
+        If keyString has a length of 0, let the user know
+         */
+        if(keyLength < 1){
+            error = true;
+            outputString = "Enter a key";
+        }
 
         /*
         For each character in the message, shift the value by key[index]
          */
-
-        for (int index = 0; index < messageLength; index ++){
-            if(index >= keyLength){
-                keyString += keyString;
-                keyLength += keyLength;
+        if(!error) {
+            for (int index = 0; index < messageLength; index++) {
+                if (index >= keyLength) {
+                    keyString += keyString;
+                    keyLength += keyLength;
+                }
+                char keyChar = keyString.charAt(index);
+                char messageChar = messageString.charAt(index);
+                char outChar;
+                if (decrypt) {
+                    outChar = (char) (messageChar - keyChar);
+                } else {
+                    outChar = (char) (messageChar + keyChar);
+                }
+                outputString += outChar;
             }
-            char keyChar = keyString.charAt(index);
-            char messageChar = messageString.charAt(index);
-            char outChar;
-            if (decrypt){
-                outChar = (char)(messageChar - keyChar);
-            }
-            else{
-                outChar = (char)(messageChar + keyChar);
-            }
-            outputString += outChar;
         }
 
 
