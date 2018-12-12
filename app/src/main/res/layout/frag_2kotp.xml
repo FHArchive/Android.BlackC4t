@@ -18,7 +18,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:ems="10"
-                    android:id="@+id/key1" android:layout_marginStart="8dp"
+                    android:id="@+id/kotp_key1" android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:singleLine="false" android:hint="Key 1" android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="text"
                     android:ems="10"
-                    android:id="@+id/key2" android:layout_marginStart="8dp"
+                    android:id="@+id/kotp_key2" android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:singleLine="false" android:hint="Key 2" android:layout_marginTop="8dp"
@@ -41,27 +41,25 @@
 
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/message"
+                    android:id="@+id/kotp_message"
                     android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0" android:hint="Message" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/key"/>
+                    app:layout_constraintHorizontal_bias="0.0" android:hint="Message" android:layout_marginTop="8dp"/>
             <ToggleButton
                     android:text="Encrypt/ Decrypt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/toggleButton" app:layout_constraintStart_toStartOf="parent"
+                    android:id="@+id/kotp_decrypt" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
                     android:textOff="Encrypt" android:textOn="Decrypt" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/message" app:layout_constraintHorizontal_bias="0.0"/>
+                    app:layout_constraintHorizontal_bias="0.0"/>
             <TextView
                     android:text="Output"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/output" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/toggleButton"
+                    android:id="@+id/kotp_output" android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="12dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="12dp"

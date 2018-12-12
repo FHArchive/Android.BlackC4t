@@ -159,10 +159,6 @@ public class Main extends AppCompatActivity {
 
         TextView output = (TextView) findViewById(R.id.otp_output);
 
-        Log.d("qwerty", "click");
-        Log.d("qwerty", message.toString());
-        Log.d("qwerty", messageString);
-
         /*
         Define other variables
          */
