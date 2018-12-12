@@ -146,18 +146,22 @@ public class Main extends AppCompatActivity {
         /*
         Get objects, strings and lengths
          */
-        EditText message = (EditText) findViewById(R.id.message);
+        EditText message = (EditText) findViewById(R.id.otp_message);
         String messageString = message.getText().toString();
         int messageLength = messageString.length();
 
-        EditText key = (EditText) findViewById(R.id.key);
+        EditText key = (EditText) findViewById(R.id.otp_key);
         String keyString = key.getText().toString();
         int keyLength = keyString.length();
 
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.otp_decrypt);
         boolean decrypt = toggle.isChecked();
 
-        TextView output = (TextView) findViewById(R.id.output);
+        TextView output = (TextView) findViewById(R.id.otp_output);
+
+        Log.d("qwerty", "click");
+        Log.d("qwerty", message.toString());
+        Log.d("qwerty", messageString);
 
         /*
         Define other variables
