@@ -194,16 +194,79 @@ public class Main extends AppCompatActivity {
             }
         }
 
+        /*
+        Write outputString to the text label
+         */
+        output.setText(outputString);
+
+    }
+
+
+    public void run2KOTP(View v){
+        /*
+        Get objects, strings and lengths
+         */
+        EditText message = (EditText) findViewById(R.id.kotp_message);
+        String messageString = message.getText().toString();
+        int messageLength = messageString.length();
+
+        EditText key1 = (EditText) findViewById(R.id.kotp_key1);
+        String keyString1 = key1.getText().toString();
+        int keyLength1 = keyString1.length();
+
+        EditText key2 = (EditText) findViewById(R.id.kotp_key2);
+        String keyString2 = key2.getText().toString();
+        int keyLength2 = keyString2.length();
+
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.kotp_decrypt);
+        boolean decrypt = toggle.isChecked();
+
+        TextView output = (TextView) findViewById(R.id.kotp_output);
+
+        /*
+        Define other variables
+         */
+        String outputString = "";
+        boolean error = false;
+
+        /*
+        If keyString has a length of 0, let the user know
+         */
+        if(keyLength1 < 1 || keyLength2 < 1){
+            error = true;
+            outputString = "Enter both keys";
+        }
+
+        /*
+        For each character in the message, shift the value by key[index]
+         */
+        if(!error) {
+            for (int index = 0; index < messageLength; index++) {
+                if (index >= keyLength1) {
+                    keyString1 += keyString1;
+                    keyLength1 += keyLength1;
+                }
+                if (index >= keyLength2) {
+                    keyString2 += keyString2;
+                    keyLength2 += keyLength2;
+                }
+                int keyChar = keyString1.charAt(index) + keyString2.charAt(index);
+                char messageChar = messageString.charAt(index);
+                char outChar;
+                if (decrypt) {
+                    outChar = (char) (messageChar - keyChar);
+                } else {
+                    outChar = (char) (messageChar + keyChar);
+                }
+                outputString += outChar;
+            }
+        }
 
         /*
         Write outputString to the text label
          */
         output.setText(outputString);
 
-
-
-
     }
-
 
 }
