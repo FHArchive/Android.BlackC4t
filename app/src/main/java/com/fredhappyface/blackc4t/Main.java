@@ -10,11 +10,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import java.util.Set;
 
 
 public class Main extends AppCompatActivity {
@@ -106,7 +103,7 @@ public class Main extends AppCompatActivity {
         }
 
         /**
-         * Add each fragment to each tab. So Tab_Home -> Frag_Home, Tab_otp -> Frag_otp ...
+         * Add each fragment to each tab. So Tab_Home -> Frag_OTP, Tab_otp -> Frag_otp ...
          * @param position
          * @return
          */
@@ -116,20 +113,18 @@ public class Main extends AppCompatActivity {
             Fragment fragment = null;
             switch (position){
                 case 0:
-                    fragment = new Frag_Home();
+                    fragment = new Frag_OTP();
                     break;
                 case 1:
-                    fragment = new Frag_Home();
+                    fragment = new Frag_OTP();
                     break;
                 case 2:
-                    fragment = new Frag_Home();
+                    fragment = new Frag_OTP();
                     break;
                 case 3:
-                    fragment = new Frag_Home();
+                    fragment = new Frag_OTP();
                     break;
-                case 4:
-                    fragment = new Frag_Home();
-                    break;
+
             }
             return fragment;
         }
@@ -137,7 +132,7 @@ public class Main extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 5 total pages.
-            return 5;
+            return 4;
         }
     }
 }

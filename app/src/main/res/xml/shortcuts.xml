@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
-    <shortcut
-            android:shortcutId="home"
-            android:enabled="true"
-            android:icon="@drawable/ic_home"
-            android:shortcutShortLabel="@string/shortcut_home_shortname"
-            android:shortcutLongLabel="@string/shortcut_home_longname"
-            android:shortcutDisabledMessage="@string/shortcut_disabled">
-        <intent
-                android:data="0"
-                android:action="android.intent.action.VIEW"
-                android:targetPackage="com.fredhappyface.blackc4t"
-                android:targetClass="com.fredhappyface.blackc4t.Main" />
 
-
-        <categories android:name="android.shortcut.conversation" />
-    </shortcut>
-    <!-- Specify more shortcuts here. -->
     <shortcut
             android:shortcutId="otp"
             android:enabled="true"
@@ -25,7 +9,7 @@
             android:shortcutLongLabel="@string/shortcut_otp_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
-                android:data="1"
+                android:data="0"
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.fredhappyface.blackc4t"
                 android:targetClass="com.fredhappyface.blackc4t.Main" />
@@ -39,7 +23,7 @@
             android:shortcutLongLabel="@string/shortcut_2kotp_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
-                android:data="2"
+                android:data="1"
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.fredhappyface.blackc4t"
                 android:targetClass="com.fredhappyface.blackc4t.Main" />
@@ -53,7 +37,7 @@
             android:shortcutLongLabel="@string/shortcut_pke_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
-                android:data="3"
+                android:data="2"
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.fredhappyface.blackc4t"
                 android:targetClass="com.fredhappyface.blackc4t.Main" />
@@ -67,7 +51,7 @@
             android:shortcutLongLabel="@string/shortcut_password_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
-                android:data="4"
+                android:data="3"
                 android:action="android.intent.action.VIEW"
                 android:targetPackage="com.fredhappyface.blackc4t"
                 android:targetClass="com.fredhappyface.blackc4t.Main" />
