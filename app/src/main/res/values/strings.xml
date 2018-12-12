@@ -14,10 +14,19 @@
     <string name="tab_text_password">Pwd. Gen.</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
+    <string name="shortcut_disabled">Shortcut Disabled</string>
 
-    <string name="shortcut_shortname">start</string>
-    <string name="shortcut_longname">long start main method</string>
-    <string name="shortcut_disabled">disabled</string>
+    <string name="shortcut_otp_shortname">One Key</string>
+    <string name="shortcut_otp_longname">One Time Pad</string>
+    <string name="shortcut_home_shortname">Home</string>
+    <string name="shortcut_home_longname">Home</string>
+    <string name="shortcut_2kotp_shortname">Two Key</string>
+    <string name="shortcut_2kotp_longname">Two Key One Time Pad</string>
+    <string name="shortcut_password_shortname">Pwd Gen</string>
+    <string name="shortcut_password_longname">Password Generator</string>
+    <string name="shortcut_pke_shortname">Public</string>
+    <string name="shortcut_pke_longname">Public Key Encryption</string>
+
 
 
 </resources>
