@@ -12,6 +12,10 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.ToggleButton;
 
 
 public class Main extends AppCompatActivity {
@@ -135,4 +139,61 @@ public class Main extends AppCompatActivity {
             return 4;
         }
     }
+
+
+    public void runOTP(View v){
+        /*
+        Get objects, strings and lengths
+         */
+        EditText message = (EditText) findViewById(R.id.message);
+        String messageString = message.toString();
+        int messageLength = messageString.length();
+
+        EditText key = (EditText) findViewById(R.id.key);
+        String keyString = key.toString();
+        int keyLength = keyString.length();
+
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleButton);
+        boolean decrypt = toggle.isChecked();
+
+        TextView output = (TextView) findViewById(R.id.output);
+
+        /*
+        Define other variables
+         */
+        String outputString = "";
+
+        /*
+        For each character in the message, shift the value by key[index]
+         */
+
+        for (int index = 0; index < messageLength; index ++){
+            if(index >= keyLength){
+                keyString += keyString;
+                keyLength += keyLength;
+            }
+            char keyChar = keyString.charAt(index);
+            char messageChar = messageString.charAt(index);
+            char outChar;
+            if (decrypt){
+                outChar = (char)(messageChar - keyChar);
+            }
+            else{
+                outChar = (char)(messageChar + keyChar);
+            }
+            outputString += outChar;
+        }
+
+
+        /*
+        Write outputString to the text label
+         */
+        output.setText(outputString);
+
+
+
+
+    }
+
+
 }
