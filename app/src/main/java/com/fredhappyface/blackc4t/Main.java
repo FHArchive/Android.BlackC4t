@@ -1,5 +1,6 @@
 package com.fredhappyface.blackc4t;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,8 +10,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.Set;
 
 
 public class Main extends AppCompatActivity {
@@ -49,6 +53,18 @@ public class Main extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+
+        Intent intent = getIntent();
+        int page = 0;
+        String data = intent.getDataString();
+
+        if (data != null){
+            page = Integer.parseInt(data);
+        }
+        mViewPager.setCurrentItem(page);
+
+
 
 
 
