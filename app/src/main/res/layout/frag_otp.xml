@@ -10,10 +10,13 @@
             app:layout_constraintBottom_toTopOf="@+id/linearLayout" android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent">
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
+                      android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:inputType="text"
                     android:ems="10"
                     android:id="@+id/key" android:layout_marginStart="8dp"
@@ -24,6 +27,7 @@
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:inputType="textMultiLine"
                     android:ems="10"
                     android:id="@+id/message"
