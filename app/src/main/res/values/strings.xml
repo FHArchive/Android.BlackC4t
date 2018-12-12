@@ -7,7 +7,7 @@
     <string name="tab_text_otp">One Key</string>
     <string name="tab_text_2kotp">Two Key</string>
     <string name="tab_text_pke">Public</string>
-    <string name="tab_text_password">Pwd. Gen.</string>
+    <string name="tab_text_password">Pwd Gen</string>
     <string name="section_format">Hello World from section: %1$d</string>
 
     <string name="shortcut_disabled">Shortcut Disabled</string>

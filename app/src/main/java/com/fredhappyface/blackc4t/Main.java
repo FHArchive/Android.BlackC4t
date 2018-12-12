@@ -116,13 +116,13 @@ public class Main extends AppCompatActivity {
                     fragment = new Frag_OTP();
                     break;
                 case 1:
-                    fragment = new Frag_OTP();
+                    fragment = new Frag_2KOTP();
                     break;
                 case 2:
-                    fragment = new Frag_OTP();
+                    fragment = new Frag_PKE();
                     break;
                 case 3:
-                    fragment = new Frag_OTP();
+                    fragment = new Frag_Password();
                     break;
 
             }
