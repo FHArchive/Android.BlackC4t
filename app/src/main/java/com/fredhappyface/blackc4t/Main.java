@@ -292,7 +292,7 @@ public class Main extends AppCompatActivity {
         ToggleButton toggle = (ToggleButton) findViewById(R.id.pke_decrypt);
         boolean decrypt = toggle.isChecked();
 
-        TextView output = (TextView) findViewById(R.id.kotp_output);
+        TextView output = (TextView) findViewById(R.id.pke_output);
 
         /*
         Define other variables
