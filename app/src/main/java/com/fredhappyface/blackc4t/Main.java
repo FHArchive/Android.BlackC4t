@@ -18,6 +18,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Main extends AppCompatActivity {
 
@@ -350,7 +356,7 @@ public class Main extends AppCompatActivity {
 
             int factor;
             do {
-                publicKeyInt = pkeGetRandomInt(1,eulerTotient);
+                publicKeyInt = getRandomInt(1,eulerTotient);
                 factor = pkeHighestCommonFactor(publicKeyInt,eulerTotient);
             }
             while (factor!= 1);
@@ -416,13 +422,13 @@ public class Main extends AppCompatActivity {
     Generates a number that may be prime
      */
     private int pkePrimeGen(int min, int max){
-        return pkeGetRandomInt((int)(min/2.0),(int)(max/2.0))*2 + 1;
+        return getRandomInt((int)(min/2.0),(int)(max/2.0))*2 + 1;
     }
 
     /*
     Returns random int between min and max (inclusive)
      */
-    private int pkeGetRandomInt(int min, int max){
+    private int getRandomInt(int min, int max){
         return (int)((Math.random() * (max - min)) + min);
     }
 
@@ -460,5 +466,150 @@ public class Main extends AppCompatActivity {
             return (base * pkeExpmod( base, (exp - 1), mod)) % mod;
         }
     }
+
+    public void runPassword(View v){
+        /*
+        Get objects, strings and lengths
+         */
+        EditText words = (EditText) findViewById(R.id.password_words);
+        String wordsString = words.getText().toString();
+        int wordsLength = wordsString.length();
+
+        EditText numbers = (EditText) findViewById(R.id.password_numbers);
+        String numbersString = numbers.getText().toString();
+        int numbersLength = numbersString.length();
+
+        EditText symbols = (EditText) findViewById(R.id.password_symbols);
+        String symbolsString = symbols.getText().toString();
+        int symbolsLength = symbolsString.length();
+
+        TextView output = (TextView) findViewById(R.id.password_output);
+
+        boolean error = false;
+
+        int wordsInt = 0;
+        int numbersInt = 0;
+        int symbolsInt = 0;
+        /*
+        If a field has content, set
+         */
+        if(wordsLength > 0){
+            wordsInt = Integer.parseInt(wordsString);
+        }
+        if(numbersLength > 0){
+            numbersInt = Integer.parseInt(numbersString);
+        }
+        if(symbolsLength > 0){
+            symbolsInt = Integer.parseInt(symbolsString);
+        }
+
+        String outputString = "";
+
+        /*
+        Populate allWords
+         */
+        String[] allWords = getAllWords();
+
+        /*
+        allWords can be null if the file cannot be read so report the error
+         */
+        if (allWords == null){
+            error = true;
+            outputString = "Error reading file";
+        }
+
+        if(!error) {
+            /*
+            Populate arrays
+             */
+            String[] wordsArray = getRandomWord(wordsInt, allWords);
+            int[] digitArray = getRandomDigit(numbersInt);
+            char[] symbolsArray = getRandomSymbol(symbolsInt);
+            /*
+            Add contents to outputString
+             */
+            for (int index = 0; index < wordsArray.length; index++) {
+                outputString += capitaliseFirstLetter( wordsArray[index]);
+            }
+            for (int index = 0; index < digitArray.length; index++) {
+                outputString += digitArray[index];
+            }
+            for (int index = 0; index < symbolsArray.length; index++) {
+                outputString += symbolsArray[index];
+            }
+
+        }
+
+        output.setText(outputString);
+
+
+    }
+
+    /*
+    Return a string with the fist letter capitalised
+     */
+    private String capitaliseFirstLetter(String string) {
+        return Character.toUpperCase(string.charAt(0)) + string.substring(1,string.length());
+    }
+
+    /*
+    Return random symbols
+     */
+    private char[] getRandomSymbol(int quantity){
+        char[] symbols = new char[quantity];
+        for(int index = 0; index < quantity; index ++) {
+            symbols[index] = (char) getRandomInt(33, 44);
+        }
+        return symbols;
+    }
+
+    /*
+    Return random digits
+     */
+    private int[] getRandomDigit(int quantity){
+        int[] digits = new int[quantity];
+        for(int index = 0; index < quantity; index ++) {
+            digits[index] = (char) getRandomInt(0,9);
+        }
+        return digits;
+    }
+
+    /*
+    Get the list of words from the text file
+     */
+    private String[] getAllWords() {
+        String word = "";
+        List<String> allWords = new ArrayList<String>();
+
+        InputStream inputStream = getResources().openRawResource(R.raw.words);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+        try {
+            while ((word = reader.readLine()) != null) {
+                allWords.add(word);
+            }
+        } catch (Exception e) {
+            return null;
+        }
+        String[] out = new String[allWords.size()];
+        for(int index = 0; index < allWords.size(); index++){
+            out[index] = allWords.get(index);
+        }
+        return out;
+
+    }
+    /*
+    Return random words
+     */
+    private String[] getRandomWord(int quantity, String[] allWords){
+        String[] words = new String[quantity];
+        for(int index = 0; index < quantity; index ++) {
+            int line = getRandomInt(0, allWords.length);
+            words[index] = allWords[line];
+        }
+        return words;
+    }
+
+
 
 }
