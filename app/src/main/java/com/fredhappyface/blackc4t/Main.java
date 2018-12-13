@@ -269,6 +269,196 @@ public class Main extends AppCompatActivity {
 
     }
 
+    public void runPKE(View v){
+        /*
+        Get objects, strings and lengths
+         */
+        EditText message = (EditText) findViewById(R.id.pke_message);
+        String messageString = message.getText().toString();
+        int messageLength = messageString.length();
 
+        EditText modulus = (EditText) findViewById(R.id.pke_modulus);
+        String modulusString = modulus.getText().toString();
+        int modulusLength = modulusString.length();
+
+        EditText publicKey = (EditText) findViewById(R.id.pke_publickey);
+        String publicKeyString = publicKey.getText().toString();
+        int publicKeyLength = publicKeyString.length();
+
+        EditText privateKey = (EditText) findViewById(R.id.pke_privatekey);
+        String privateKeyString = privateKey.getText().toString();
+        int privateKeyLength = privateKeyString.length();
+
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.pke_decrypt);
+        boolean decrypt = toggle.isChecked();
+
+        TextView output = (TextView) findViewById(R.id.kotp_output);
+
+        /*
+        Define other variables
+         */
+        String outputString = "";
+        int modulusInt = 0;
+        int publicKeyInt = 0;
+        int privateKeyInt = 0;
+
+        /*
+        If modulus has not been completed, populate it
+         */
+        if(modulusLength < 1){
+            // populate mod
+        }
+        else{
+            modulusInt = Integer.parseInt(modulusString);
+        }
+        /*
+        If the public key has not been filled and encrypting or
+        If the private key has not been filled and decrypting then
+        generate publicKeyInt and privateKeyInt
+         */
+        if ((publicKeyLength < 1 && !decrypt) || (privateKeyLength < 1 && decrypt)) {
+            /*
+            Generate the seed prime numbers
+             */
+            boolean isPrime;
+            int prime0;
+            int prime1;
+            do {
+                prime0 = pkePrimeGen(64,256);
+                isPrime = pkeIsPrime(prime0);
+            }
+            while (isPrime == false);
+
+            do {
+                prime1 = pkePrimeGen(64,256);
+                isPrime = pkeIsPrime(prime1);
+            }
+            while (isPrime == false);
+            /*
+            Generate the key modulus - this is used in the encryption and decryption methods
+             */
+            modulusInt = prime0*prime1;
+
+            /*
+            Generate the euler totient - this is used to generate the private key exponent from the public key exponent
+             */
+            int eulerTotient = (prime0-1)*(prime1-1);
+
+            /*
+            Use Euclid's Algorithm to verify that publicKeyExponent and eulerTotient are coprime
+             */
+
+            int factor;
+            do {
+                publicKeyInt = pkeGetRandomInt(1,eulerTotient);
+                factor = pkeHighestCommonFactor(publicKeyInt,eulerTotient);
+            }
+            while (factor!= 1);
+
+            /*
+            Calculates the private key exponent from the public key exponent
+             */
+            privateKeyInt = pkeModInverse(publicKeyInt,eulerTotient);
+        }
+        else{
+            publicKeyInt = Integer.parseInt(publicKeyString);
+            privateKeyInt = Integer.parseInt(privateKeyString);
+        }
+
+        /*
+        Fill the modulus, public and private fields
+         */
+        modulus.setText(Integer.toString(modulusInt));
+        publicKey.setText(Integer.toString(publicKeyInt));
+        privateKey.setText(Integer.toString(privateKeyInt));
+
+
+        /*
+        Do the encryption/ decryption
+         */
+        String outstring = "";
+        for (int index = 0; (index < messageLength); index += 1) {
+            int charInt;
+            if ((!decrypt)) {
+                charInt = pkeExpmod(messageString.charAt(index),publicKeyInt,modulusInt);
+            } else {
+                charInt = pkeExpmod(messageString.charAt(index),privateKeyInt,modulusInt);
+            }
+            outstring += (char)(charInt);
+        }
+
+        /*
+        Write to output
+         */
+        output.setText(outstring);
+
+    }
+
+    /*
+    Checks that the argument is a prime number
+     */
+    private boolean pkeIsPrime(int x){
+        if(x%2 == 0 && x>2){
+            return false;
+        }
+        int i = 3;
+        double sqrt = Math.sqrt(x);
+        while(i < sqrt){
+            if(x%i == 0){
+                return false;
+            }
+            i += 2;
+        }
+        return true;
+    }
+
+    /*
+    Generates a number that may be prime
+     */
+    private int pkePrimeGen(int min, int max){
+        return pkeGetRandomInt((int)(min/2.0),(int)(max/2.0))*2 + 1;
+    }
+
+    /*
+    Returns random int between min and max (inclusive)
+     */
+    private int pkeGetRandomInt(int min, int max){
+        return (int)((Math.random() * (max - min)) + min);
+    }
+
+    /*
+    Finds the Highest Common Factor or argument a and arguement b
+     */
+    private int pkeHighestCommonFactor(int a, int b){
+        if (b == 0){
+            return a;
+        }
+        else{
+            return pkeHighestCommonFactor(b, a % b);
+        }
+    }
+
+    /*
+    Calculates the private key exponent from the public key exponent
+     */
+    private int pkeModInverse(int a, int m){
+        for (int x = 1; x < m; x++){
+            if ((a * x) % m == 1){
+                return x;
+            }
+        }
+        return 1;
+    }
+
+    private int pkeExpmod( int base, int exp, int mod ){
+        if (exp == 0) return 1;
+        if (exp % 2 == 0){
+            int expmod = pkeExpmod( base, (exp / 2), mod);
+            return (int)(Math.pow(expmod , 2) % mod);
+        }
+        else {
+            return (base * pkeExpmod( base, (exp - 1), mod)) % mod;
+        }
+    }
 
 }
