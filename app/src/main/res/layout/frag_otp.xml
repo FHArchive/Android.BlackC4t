@@ -40,6 +40,7 @@
                     android:text="Encrypt/ Decrypt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:minHeight="10dp"
                     android:background="@drawable/button"
                     android:id="@+id/otp_decrypt" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +51,7 @@
                     android:text="Output"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/textbox"
+                    android:background="@drawable/output"
                     android:textIsSelectable="true"
                     android:id="@+id/otp_output" android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -65,14 +66,15 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="0dp"
-            android:layout_height="50dp" android:layout_marginBottom="8dp"
+            android:layout_height="40dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:id="@+id/linearLayout"
     >
         <Button
-                android:text="🏃‍ Run"
                 android:background="@drawable/button"
+                android:text="🏃‍ Run"
+                android:minHeight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/button4" android:layout_weight="1"
                 android:onClick="runOTP"/>

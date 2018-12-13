@@ -17,6 +17,7 @@
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/textbox"
                     android:inputType="textMultiLine"
                     android:ems="10"
                     android:id="@+id/pke_message"
@@ -28,6 +29,8 @@
                     android:text="Encrypt/ Decrypt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/button"
+                    android:minHeight="10dp"
                     android:id="@+id/pke_decrypt" app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginEnd="8dp"
@@ -36,6 +39,7 @@
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/textbox"
                     android:inputType="text"
                     android:ems="10"
                     android:id="@+id/pke_modulus" android:layout_marginStart="8dp"
@@ -46,6 +50,7 @@
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/textbox"
                     android:inputType="text"
                     android:ems="10"
                     android:id="@+id/pke_publickey" android:layout_marginStart="8dp"
@@ -56,6 +61,7 @@
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/textbox"
                     android:inputType="text"
                     android:ems="10"
                     android:id="@+id/pke_privatekey" android:layout_marginStart="8dp"
@@ -68,11 +74,12 @@
                     android:text="Output"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/output"
                     android:id="@+id/pke_output" android:layout_marginTop="8dp"
                     android:textIsSelectable="true"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginStart="12dp" app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintHorizontal_bias="0.0" android:textSize="18sp"
                     android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout"/>
         </LinearLayout>
@@ -82,13 +89,15 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="0dp"
-            android:layout_height="50dp" android:layout_marginBottom="8dp"
+            android:layout_height="40dp" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             android:id="@+id/linearLayout"
     >
         <Button
                 android:text="🏃‍ Run"
+                android:background="@drawable/button"
+                android:minHeight="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/button4" android:layout_weight="1"/>
     </LinearLayout>
