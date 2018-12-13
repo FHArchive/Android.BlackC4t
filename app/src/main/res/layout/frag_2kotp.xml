@@ -13,6 +13,12 @@
                       android:orientation="vertical"
         android:focusable="true"
         android:focusableInTouchMode="true">
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp" app:srcCompat="@drawable/shiba_inu_wide"
+                    android:id="@+id/imageView"
+                    android:scaleType="centerCrop" android:padding="8dp" android:cropToPadding="false"
+                    android:adjustViewBounds="false"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
