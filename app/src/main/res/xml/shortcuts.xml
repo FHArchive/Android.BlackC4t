@@ -18,7 +18,7 @@
     <shortcut
             android:shortcutId="2kotp"
             android:enabled="true"
-            android:icon="@drawable/ic_2kotp"
+            android:icon="@drawable/ic_2kotpshibe"
             android:shortcutShortLabel="@string/shortcut_2kotp_shortname"
             android:shortcutLongLabel="@string/shortcut_2kotp_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
