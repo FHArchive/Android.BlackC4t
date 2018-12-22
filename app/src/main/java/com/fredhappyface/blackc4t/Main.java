@@ -10,7 +10,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -79,6 +78,9 @@ public class Main extends AppCompatActivity {
     }
 
 
+    /*
+    Create the overflow menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -86,6 +88,9 @@ public class Main extends AppCompatActivity {
         return true;
     }
 
+    /*
+    Do when an option has been selected
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -95,6 +100,14 @@ public class Main extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            // start the new activity here
+            startActivity(new Intent(this, Settings.class));
+            return true;
+        }
+
+        if (id == R.id.action_about) {
+            // start the new activity here
+            startActivity(new Intent(this, About.class));
             return true;
         }
 
