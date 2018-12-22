@@ -23,6 +23,26 @@
     <string name="shortcut_pke_shortname">Public</string>
     <string name="shortcut_pke_longname">Public Key Encryption</string>
 
+    <string name="two_image_description">Image of Shibe</string>
+    <string name="encrypt_key_hint">Key</string>
+    <string name="encrypt_key1_hint">Key 1</string>
+    <string name="encrypt_key2_hint">Key 2</string>
+    <string name="encrypt_message_hint">Message</string>
+    <string name="encrypt_toggle_button">Encrypt/ Decrypt</string>
+    <string name="encrypt_toggle_button_off">Encrypt</string>
+    <string name="encrypt_toggle_button_on">Decrypt</string>
+
+    <string name="frag_output_text">Output</string>
+    <string name="frag_run_text">🏃‍ Run</string>
+
+    <string name="password_input1_hint">Number of Words</string>
+    <string name="password_input2_hint">Number of Numbers</string>
+    <string name="password_input3_hint">Number of Symbols</string>
+
+    <string name="pke_mod_hint">Modulus</string>
+    <string name="pke_public_hint">Public Key Exponent</string>
+    <string name="pke_private_hint">Private Key Exponent</string>
+
 
     <string name="about_head">About</string>
     <string name="about_description">This app exists to provide a proof of concept for various encryption methods
