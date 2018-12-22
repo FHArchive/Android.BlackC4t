@@ -1,15 +1,14 @@
 package com.fredhappyface.blackc4t;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -66,13 +65,10 @@ public class Main extends AppCompatActivity {
         int page = 0;
         String data = intent.getDataString();
 
-        if (data != null){
+        if (data != null) {
             page = Integer.parseInt(data);
         }
         mViewPager.setCurrentItem(page);
-
-
-
 
 
     }
@@ -115,7 +111,6 @@ public class Main extends AppCompatActivity {
     }
 
 
-
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
@@ -128,6 +123,7 @@ public class Main extends AppCompatActivity {
 
         /**
          * Add each fragment to each tab. So Tab_Home -> Frag_OTP, Tab_otp -> Frag_otp ...
+         *
          * @param position
          * @return
          */
@@ -135,7 +131,7 @@ public class Main extends AppCompatActivity {
         public Fragment getItem(int position) {
             // Switch case for each fragment
             Fragment fragment = null;
-            switch (position){
+            switch (position) {
                 case 0:
                     fragment = new Frag_OTP();
                     break;
@@ -161,7 +157,7 @@ public class Main extends AppCompatActivity {
     }
 
 
-    public void runOTP(View v){
+    public void runOTP(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -187,7 +183,7 @@ public class Main extends AppCompatActivity {
         /*
         If keyString has a length of 0, let the user know
          */
-        if(keyLength < 1){
+        if (keyLength < 1) {
             error = true;
             outputString = "Enter a key";
         }
@@ -195,7 +191,7 @@ public class Main extends AppCompatActivity {
         /*
         For each character in the message, shift the value by key[index]
          */
-        if(!error) {
+        if (!error) {
             for (int index = 0; index < messageLength; index++) {
                 if (index >= keyLength) {
                     keyString += keyString;
@@ -221,7 +217,7 @@ public class Main extends AppCompatActivity {
     }
 
 
-    public void run2KOTP(View v){
+    public void run2KOTP(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -251,7 +247,7 @@ public class Main extends AppCompatActivity {
         /*
         If keyString has a length of 0, let the user know
          */
-        if(keyLength1 < 1 || keyLength2 < 1){
+        if (keyLength1 < 1 || keyLength2 < 1) {
             error = true;
             outputString = "Enter both keys";
         }
@@ -259,7 +255,7 @@ public class Main extends AppCompatActivity {
         /*
         For each character in the message, shift the value by key[index]
          */
-        if(!error) {
+        if (!error) {
             for (int index = 0; index < messageLength; index++) {
                 if (index >= keyLength1) {
                     keyString1 += keyString1;
@@ -288,7 +284,7 @@ public class Main extends AppCompatActivity {
 
     }
 
-    public void runPKE(View v){
+    public void runPKE(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -324,10 +320,9 @@ public class Main extends AppCompatActivity {
         /*
         If modulus has not been completed, populate it
          */
-        if(modulusLength < 1){
+        if (modulusLength < 1) {
             // populate mod
-        }
-        else{
+        } else {
             modulusInt = Integer.parseInt(modulusString);
         }
         /*
@@ -343,25 +338,25 @@ public class Main extends AppCompatActivity {
             int prime0;
             int prime1;
             do {
-                prime0 = pkePrimeGen(64,256);
+                prime0 = pkePrimeGen(64, 256);
                 isPrime = pkeIsPrime(prime0);
             }
             while (isPrime == false);
 
             do {
-                prime1 = pkePrimeGen(64,256);
+                prime1 = pkePrimeGen(64, 256);
                 isPrime = pkeIsPrime(prime1);
             }
             while (isPrime == false);
             /*
             Generate the key modulus - this is used in the encryption and decryption methods
              */
-            modulusInt = prime0*prime1;
+            modulusInt = prime0 * prime1;
 
             /*
             Generate the euler totient - this is used to generate the private key exponent from the public key exponent
              */
-            int eulerTotient = (prime0-1)*(prime1-1);
+            int eulerTotient = (prime0 - 1) * (prime1 - 1);
 
             /*
             Use Euclid's Algorithm to verify that publicKeyExponent and eulerTotient are coprime
@@ -369,17 +364,16 @@ public class Main extends AppCompatActivity {
 
             int factor;
             do {
-                publicKeyInt = getRandomInt(1,eulerTotient);
-                factor = pkeHighestCommonFactor(publicKeyInt,eulerTotient);
+                publicKeyInt = getRandomInt(1, eulerTotient);
+                factor = pkeHighestCommonFactor(publicKeyInt, eulerTotient);
             }
-            while (factor!= 1);
+            while (factor != 1);
 
             /*
             Calculates the private key exponent from the public key exponent
              */
-            privateKeyInt = pkeModInverse(publicKeyInt,eulerTotient);
-        }
-        else{
+            privateKeyInt = pkeModInverse(publicKeyInt, eulerTotient);
+        } else {
             publicKeyInt = Integer.parseInt(publicKeyString);
             privateKeyInt = Integer.parseInt(privateKeyString);
         }
@@ -399,11 +393,11 @@ public class Main extends AppCompatActivity {
         for (int index = 0; (index < messageLength); index += 1) {
             int charInt;
             if ((!decrypt)) {
-                charInt = pkeExpmod(messageString.charAt(index),publicKeyInt,modulusInt);
+                charInt = pkeExpmod(messageString.charAt(index), publicKeyInt, modulusInt);
             } else {
-                charInt = pkeExpmod(messageString.charAt(index),privateKeyInt,modulusInt);
+                charInt = pkeExpmod(messageString.charAt(index), privateKeyInt, modulusInt);
             }
-            outstring += (char)(charInt);
+            outstring += (char) (charInt);
         }
 
         /*
@@ -416,14 +410,14 @@ public class Main extends AppCompatActivity {
     /*
     Checks that the argument is a prime number
      */
-    private boolean pkeIsPrime(int x){
-        if(x%2 == 0 && x>2){
+    private boolean pkeIsPrime(int x) {
+        if (x % 2 == 0 && x > 2) {
             return false;
         }
         int i = 3;
         double sqrt = Math.sqrt(x);
-        while(i < sqrt){
-            if(x%i == 0){
+        while (i < sqrt) {
+            if (x % i == 0) {
                 return false;
             }
             i += 2;
@@ -434,25 +428,24 @@ public class Main extends AppCompatActivity {
     /*
     Generates a number that may be prime
      */
-    private int pkePrimeGen(int min, int max){
-        return getRandomInt((int)(min/2.0),(int)(max/2.0))*2 + 1;
+    private int pkePrimeGen(int min, int max) {
+        return getRandomInt((int) (min / 2.0), (int) (max / 2.0)) * 2 + 1;
     }
 
     /*
     Returns random int between min and max (inclusive)
      */
-    private int getRandomInt(int min, int max){
-        return (int)((Math.random() * (max - min)) + min);
+    private int getRandomInt(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
     }
 
     /*
     Finds the Highest Common Factor or argument a and arguement b
      */
-    private int pkeHighestCommonFactor(int a, int b){
-        if (b == 0){
+    private int pkeHighestCommonFactor(int a, int b) {
+        if (b == 0) {
             return a;
-        }
-        else{
+        } else {
             return pkeHighestCommonFactor(b, a % b);
         }
     }
@@ -460,27 +453,26 @@ public class Main extends AppCompatActivity {
     /*
     Calculates the private key exponent from the public key exponent
      */
-    private int pkeModInverse(int a, int m){
-        for (int x = 1; x < m; x++){
-            if ((a * x) % m == 1){
+    private int pkeModInverse(int a, int m) {
+        for (int x = 1; x < m; x++) {
+            if ((a * x) % m == 1) {
                 return x;
             }
         }
         return 1;
     }
 
-    private int pkeExpmod( int base, int exp, int mod ){
+    private int pkeExpmod(int base, int exp, int mod) {
         if (exp == 0) return 1;
-        if (exp % 2 == 0){
-            int expmod = pkeExpmod( base, (exp / 2), mod);
-            return (int)(Math.pow(expmod , 2) % mod);
-        }
-        else {
-            return (base * pkeExpmod( base, (exp - 1), mod)) % mod;
+        if (exp % 2 == 0) {
+            int expmod = pkeExpmod(base, (exp / 2), mod);
+            return (int) (Math.pow(expmod, 2) % mod);
+        } else {
+            return (base * pkeExpmod(base, (exp - 1), mod)) % mod;
         }
     }
 
-    public void runPassword(View v){
+    public void runPassword(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -506,13 +498,13 @@ public class Main extends AppCompatActivity {
         /*
         If a field has content, set
          */
-        if(wordsLength > 0){
+        if (wordsLength > 0) {
             wordsInt = Integer.parseInt(wordsString);
         }
-        if(numbersLength > 0){
+        if (numbersLength > 0) {
             numbersInt = Integer.parseInt(numbersString);
         }
-        if(symbolsLength > 0){
+        if (symbolsLength > 0) {
             symbolsInt = Integer.parseInt(symbolsString);
         }
 
@@ -526,12 +518,12 @@ public class Main extends AppCompatActivity {
         /*
         allWords can be null if the file cannot be read so report the error
          */
-        if (allWords == null){
+        if (allWords == null) {
             error = true;
             outputString = "Error reading file";
         }
 
-        if(!error) {
+        if (!error) {
             /*
             Populate arrays
              */
@@ -542,7 +534,7 @@ public class Main extends AppCompatActivity {
             Add contents to outputString
              */
             for (int index = 0; index < wordsArray.length; index++) {
-                outputString += capitaliseFirstLetter( wordsArray[index]);
+                outputString += capitaliseFirstLetter(wordsArray[index]);
             }
             for (int index = 0; index < digitArray.length; index++) {
                 outputString += digitArray[index];
@@ -562,15 +554,15 @@ public class Main extends AppCompatActivity {
     Return a string with the fist letter capitalised
      */
     private String capitaliseFirstLetter(String string) {
-        return Character.toUpperCase(string.charAt(0)) + string.substring(1,string.length());
+        return Character.toUpperCase(string.charAt(0)) + string.substring(1, string.length());
     }
 
     /*
     Return random symbols
      */
-    private char[] getRandomSymbol(int quantity){
+    private char[] getRandomSymbol(int quantity) {
         char[] symbols = new char[quantity];
-        for(int index = 0; index < quantity; index ++) {
+        for (int index = 0; index < quantity; index++) {
             symbols[index] = (char) getRandomInt(33, 44);
         }
         return symbols;
@@ -579,10 +571,10 @@ public class Main extends AppCompatActivity {
     /*
     Return random digits
      */
-    private int[] getRandomDigit(int quantity){
+    private int[] getRandomDigit(int quantity) {
         int[] digits = new int[quantity];
-        for(int index = 0; index < quantity; index ++) {
-            digits[index] = (char) getRandomInt(0,9);
+        for (int index = 0; index < quantity; index++) {
+            digits[index] = (char) getRandomInt(0, 9);
         }
         return digits;
     }
@@ -605,24 +597,24 @@ public class Main extends AppCompatActivity {
             return null;
         }
         String[] out = new String[allWords.size()];
-        for(int index = 0; index < allWords.size(); index++){
+        for (int index = 0; index < allWords.size(); index++) {
             out[index] = allWords.get(index);
         }
         return out;
 
     }
+
     /*
     Return random words
      */
-    private String[] getRandomWord(int quantity, String[] allWords){
+    private String[] getRandomWord(int quantity, String[] allWords) {
         String[] words = new String[quantity];
-        for(int index = 0; index < quantity; index ++) {
+        for (int index = 0; index < quantity; index++) {
             int line = getRandomInt(0, allWords.length);
             words[index] = allWords[line];
         }
         return words;
     }
-
 
 
 }
