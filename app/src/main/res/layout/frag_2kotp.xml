@@ -7,104 +7,82 @@
 
     <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout" android:layout_marginTop="8dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
-                android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/activity_horizontal_margin"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin"
-                android:orientation="vertical"
-                android:focusable="true"
-                android:importantForAutofill="noExcludeDescendants"
-                android:focusableInTouchMode="true">
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="true"
+            android:importantForAutofill="noExcludeDescendants"
+            android:focusableInTouchMode="true">
             <ImageView
-                    android:contentDescription="@string/two_image_description"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp" app:srcCompat="@drawable/shiba_inu_wide"
-                    android:id="@+id/imageView"
-                    android:scaleType="centerCrop" android:cropToPadding="false"
-                    android:adjustViewBounds="false"/>
+                android:contentDescription="@string/two_image_description"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/shiba_inu_wide"
+                android:id="@+id/imageView"
+                android:scaleType="centerCrop"
+                android:cropToPadding="false"
+                android:adjustViewBounds="false"/>
             <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textbox"
-                    android:inputType="text"
-                    android:ems="10"
-                    android:id="@+id/kotp_key1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:singleLine="false" android:hint="@string/encrypt_key1_hint" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                android:background="@drawable/textbox"
+                android:inputType="text"
+                android:id="@+id/kotp_key1"
+                android:singleLine="false" android:hint="@string/encrypt_key1_hint"
+                style="@style/code_text_style"
+                />
 
             <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textbox"
-                    android:inputType="text"
-                    android:ems="10"
-                    android:id="@+id/kotp_key2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:singleLine="false" android:hint="@string/encrypt_key2_hint" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                android:background="@drawable/textbox"
+                android:inputType="text"
+                android:id="@+id/kotp_key2"
+                android:singleLine="false"
+                android:hint="@string/encrypt_key2_hint"
+                style="@style/code_text_style"
+                />
 
             <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/textbox"
-                    android:inputType="textMultiLine"
-                    android:ems="10"
-                    android:id="@+id/kotp_message"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0" android:hint="@string/encrypt_message_hint"
-                    android:layout_marginTop="8dp"/>
+                style="@style/code_text_style"
+                android:inputType="textMultiLine"
+                android:id="@+id/kotp_message"
+                android:hint="@string/encrypt_message_hint"
+                />
             <ToggleButton
-                    android:text="@string/encrypt_toggle_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/button"
-                    android:minHeight="10dp"
-                    android:id="@+id/kotp_decrypt" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:textOff="@string/encrypt_toggle_button_off"
-                    android:textOn="@string/encrypt_toggle_button_on" android:layout_marginTop="8dp"
-                    app:layout_constraintHorizontal_bias="0.0"/>
+                android:text="@string/encrypt_toggle_button"
+                style="@style/button_style"
+                android:id="@+id/kotp_decrypt"
+                android:textOff="@string/encrypt_toggle_button_off"
+                android:textOn="@string/encrypt_toggle_button_on"
+                app:layout_constraintHorizontal_bias="0.0"
+                />
             <TextView
-                    android:text="@string/frag_output_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/output"
-                    android:textIsSelectable="true"
-                    android:id="@+id/kotp_output" android:layout_marginTop="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0" android:textSize="18sp"
-                    android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout"/>
+                android:text="@string/frag_output_text"
+                style="@style/code_text_style"
+                android:background="@drawable/output"
+                android:textIsSelectable="true"
+                android:id="@+id/kotp_output"
+                />
         </LinearLayout>
     </ScrollView>
 
 
     <LinearLayout
-
-            android:orientation="horizontal"
-            android:layout_width="0dp"
-            android:layout_height="40dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/linearLayout"
+        android:orientation="horizontal"
+        style="@style/bottom_button_style"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/linearLayout"
     >
         <Button
-                android:text="@string/frag_run_text"
-                android:background="@drawable/button"
-                android:minHeight="10dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content" android:id="@+id/button4" android:layout_weight="1"
-                android:onClick="run2KOTP"/>
+            android:text="@string/frag_run_text"
+            android:background="@drawable/button"
+            style="@style/button_style"
+            android:id="@+id/button4"
+            android:layout_weight="1"
+            android:onClick="run2KOTP"
+            />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -24,8 +24,6 @@
                 android:layout_weight="1"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
-            <!--app:layout_scrollFlags="scroll|enterAlways"-->
-
 
         </android.support.v7.widget.Toolbar>
 
@@ -33,7 +31,6 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
 
             <android.support.design.widget.TabItem
                     android:id="@+id/tab_otp"

@@ -45,17 +45,17 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout tabLayout = findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
@@ -117,15 +117,12 @@ public class Main extends AppCompatActivity {
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        private SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
-        /**
+        /*
          * Add each fragment to each tab. So Tab_Home -> Frag_OTP, Tab_otp -> Frag_otp ...
-         *
-         * @param position
-         * @return
          */
         @Override
         public Fragment getItem(int position) {
@@ -149,9 +146,11 @@ public class Main extends AppCompatActivity {
             return fragment;
         }
 
+        /*
+        Show total number of pages
+         */
         @Override
         public int getCount() {
-            // Show 5 total pages.
             return 4;
         }
     }
@@ -161,23 +160,23 @@ public class Main extends AppCompatActivity {
         /*
         Get objects, strings and lengths
          */
-        EditText message = (EditText) findViewById(R.id.otp_message);
+        EditText message = findViewById(R.id.otp_message);
         String messageString = message.getText().toString();
         int messageLength = messageString.length();
 
-        EditText key = (EditText) findViewById(R.id.otp_key);
+        EditText key = findViewById(R.id.otp_key);
         String keyString = key.getText().toString();
         int keyLength = keyString.length();
 
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.otp_decrypt);
+        ToggleButton toggle = findViewById(R.id.otp_decrypt);
         boolean decrypt = toggle.isChecked();
 
-        TextView output = (TextView) findViewById(R.id.otp_output);
+        TextView output = findViewById(R.id.otp_output);
 
         /*
         Define other variables
          */
-        String outputString = "";
+        StringBuffer outputString = new StringBuffer();
         boolean error = false;
 
         /*
@@ -185,7 +184,7 @@ public class Main extends AppCompatActivity {
          */
         if (keyLength < 1) {
             error = true;
-            outputString = "Enter a key";
+            outputString.append( "Enter a key");
         }
 
         /*
@@ -205,7 +204,8 @@ public class Main extends AppCompatActivity {
                 } else {
                     outChar = (char) (messageChar + keyChar);
                 }
-                outputString += outChar;
+                outputString.append( outChar);
+
             }
         }
 
@@ -221,27 +221,27 @@ public class Main extends AppCompatActivity {
         /*
         Get objects, strings and lengths
          */
-        EditText message = (EditText) findViewById(R.id.kotp_message);
+        EditText message = findViewById(R.id.kotp_message);
         String messageString = message.getText().toString();
         int messageLength = messageString.length();
 
-        EditText key1 = (EditText) findViewById(R.id.kotp_key1);
+        EditText key1 = findViewById(R.id.kotp_key1);
         String keyString1 = key1.getText().toString();
         int keyLength1 = keyString1.length();
 
-        EditText key2 = (EditText) findViewById(R.id.kotp_key2);
+        EditText key2 = findViewById(R.id.kotp_key2);
         String keyString2 = key2.getText().toString();
         int keyLength2 = keyString2.length();
 
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.kotp_decrypt);
+        ToggleButton toggle = findViewById(R.id.kotp_decrypt);
         boolean decrypt = toggle.isChecked();
 
-        TextView output = (TextView) findViewById(R.id.kotp_output);
+        TextView output = findViewById(R.id.kotp_output);
 
         /*
         Define other variables
          */
-        String outputString = "";
+        StringBuffer outputString = new StringBuffer();
         boolean error = false;
 
         /*
@@ -249,7 +249,7 @@ public class Main extends AppCompatActivity {
          */
         if (keyLength1 < 1 || keyLength2 < 1) {
             error = true;
-            outputString = "Enter both keys";
+            outputString.append( "Enter both keys");
         }
 
         /*
@@ -273,7 +273,7 @@ public class Main extends AppCompatActivity {
                 } else {
                     outChar = (char) (messageChar + keyChar);
                 }
-                outputString += outChar;
+                outputString.append( outChar);
             }
         }
 
@@ -288,41 +288,38 @@ public class Main extends AppCompatActivity {
         /*
         Get objects, strings and lengths
          */
-        EditText message = (EditText) findViewById(R.id.pke_message);
+        EditText message = findViewById(R.id.pke_message);
         String messageString = message.getText().toString();
         int messageLength = messageString.length();
 
-        EditText modulus = (EditText) findViewById(R.id.pke_modulus);
+        EditText modulus = findViewById(R.id.pke_modulus);
         String modulusString = modulus.getText().toString();
         int modulusLength = modulusString.length();
 
-        EditText publicKey = (EditText) findViewById(R.id.pke_publickey);
+        EditText publicKey = findViewById(R.id.pke_publickey);
         String publicKeyString = publicKey.getText().toString();
         int publicKeyLength = publicKeyString.length();
 
-        EditText privateKey = (EditText) findViewById(R.id.pke_privatekey);
+        EditText privateKey = findViewById(R.id.pke_privatekey);
         String privateKeyString = privateKey.getText().toString();
         int privateKeyLength = privateKeyString.length();
 
-        ToggleButton toggle = (ToggleButton) findViewById(R.id.pke_decrypt);
+        ToggleButton toggle = findViewById(R.id.pke_decrypt);
         boolean decrypt = toggle.isChecked();
 
-        TextView output = (TextView) findViewById(R.id.pke_output);
+        TextView output = findViewById(R.id.pke_output);
 
         /*
         Define other variables
          */
-        String outputString = "";
         int modulusInt = 0;
-        int publicKeyInt = 0;
-        int privateKeyInt = 0;
+        int publicKeyInt;
+        int privateKeyInt;
 
         /*
-        If modulus has not been completed, populate it
+        Get the modulus
          */
-        if (modulusLength < 1) {
-            // populate mod
-        } else {
+        if (modulusLength > 0) {
             modulusInt = Integer.parseInt(modulusString);
         }
         /*
@@ -341,13 +338,13 @@ public class Main extends AppCompatActivity {
                 prime0 = pkePrimeGen(64, 256);
                 isPrime = pkeIsPrime(prime0);
             }
-            while (isPrime == false);
+            while (!isPrime);
 
             do {
                 prime1 = pkePrimeGen(64, 256);
                 isPrime = pkeIsPrime(prime1);
             }
-            while (isPrime == false);
+            while (!isPrime);
             /*
             Generate the key modulus - this is used in the encryption and decryption methods
              */
