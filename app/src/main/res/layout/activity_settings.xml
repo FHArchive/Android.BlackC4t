@@ -28,8 +28,10 @@
             style="@style/heading_text_style"
             />
         <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
             <RadioButton
                 android:text="@string/settings_theme_radio1"
                 style="@style/radio_style"
@@ -54,8 +56,10 @@
             style="@style/heading_text_style"
             />
         <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            >
             <RadioButton
                 android:text="@string/settings_text_radio1"
                 style="@style/radio_style"
