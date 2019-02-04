@@ -39,3 +39,8 @@ Follow the link to the APKs directory by clicking on the badge above, then selec
       alt="Get it on APKPure"   height="80">](https://apkpure.com/[app_name]/[package_name])
 
 Follow the link to the listing on apkpure.com by clicking on the badge above, then download/ install
+
+# Licence 
+MIT License
+Copyright (c) Kieran W
+(See the [LICENSE](/blob/master/LICENSE.md) for more information.)
