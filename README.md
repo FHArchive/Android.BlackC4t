@@ -24,7 +24,7 @@ Note that the app name denoted [app_name] in this document is the repository nam
 ### Or
 
 [<img src="readme-assets/direct-apk-download.png"
-      alt="Direct apk download"   height="80">](https://github.com/FredHappyface/Android.BlackC4t/tree/master/BlackC4t-APKs)
+      alt="Direct apk download"   height="80">](/BlackC4t-APKs)
 
 Follow the link to the APKs directory by clicking on the badge above, then select the preferred APK
 
@@ -43,4 +43,4 @@ Follow the link to the listing on apkpure.com by clicking on the badge above, th
 # Licence 
 MIT License
 Copyright (c) Kieran W
-(See the [LICENSE](/blob/master/LICENSE.md) for more information.)
+(See the [LICENSE](/LICENSE.md) for more information.)
