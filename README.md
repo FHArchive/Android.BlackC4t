@@ -69,5 +69,5 @@ Copyright (c) Kieran W
 # Screenshots
 |Screenshots| |
 |:-:|:-:|
-| ![Screenshot 1](readme-assets/screenshot-1.png) | ![Screenshot 2](readme-assets/screenshot-2.png) |
-| ![Screenshot 3](readme-assets/screenshot-3.png) | ![Screenshot 4](readme-assets/screenshot-4.png) |
+| ![Screenshot 1](readme-assets/screenshot-1.PNG) | ![Screenshot 2](readme-assets/screenshot-2.PNG) |
+| ![Screenshot 3](readme-assets/screenshot-3.PNG) | ![Screenshot 4](readme-assets/screenshot-4.PNG) |
