@@ -21,24 +21,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 
 public class Main extends AppCompatActivity {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
-    private SectionsPagerAdapter mSectionsPagerAdapter;
-
-    /**
-     * The {@link ViewPager} that will host the section contents.
-     */
-    private ViewPager mViewPager;
+    final static Locale locale = Locale.ENGLISH;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +37,10 @@ public class Main extends AppCompatActivity {
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
-        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = findViewById(R.id.container);
+        ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
@@ -89,24 +77,18 @@ public class Main extends AppCompatActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
+        /*
         if (id == R.id.action_settings) {
-            // start the new activity here
             startActivity(new Intent(this, Settings.class));
             return true;
         }
-
+        */
         if (id == R.id.action_about) {
-            // start the new activity here
             startActivity(new Intent(this, About.class));
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -378,15 +360,15 @@ public class Main extends AppCompatActivity {
         /*
         Fill the modulus, public and private fields
          */
-        modulus.setText(Integer.toString(modulusInt));
-        publicKey.setText(Integer.toString(publicKeyInt));
-        privateKey.setText(Integer.toString(privateKeyInt));
+        modulus.setText(String.format(locale,"%d",modulusInt));
+        publicKey.setText(String.format(locale,"%d",publicKeyInt));
+        privateKey.setText(String.format(locale,"%d",privateKeyInt));
 
 
         /*
         Do the encryption/ decryption
          */
-        String outstring = "";
+        StringBuilder outstring = new StringBuilder();
         for (int index = 0; (index < messageLength); index += 1) {
             int charInt;
             if ((!decrypt)) {
@@ -394,13 +376,13 @@ public class Main extends AppCompatActivity {
             } else {
                 charInt = pkeExpmod(messageString.charAt(index), privateKeyInt, modulusInt);
             }
-            outstring += (char) (charInt);
+            outstring.append((char) (charInt));
         }
 
         /*
         Write to output
          */
-        output.setText(outstring);
+        output.setText(outstring.toString());
 
     }
 
@@ -473,19 +455,19 @@ public class Main extends AppCompatActivity {
         /*
         Get objects, strings and lengths
          */
-        EditText words = (EditText) findViewById(R.id.password_words);
+        EditText words = findViewById(R.id.password_words);
         String wordsString = words.getText().toString();
         int wordsLength = wordsString.length();
 
-        EditText numbers = (EditText) findViewById(R.id.password_numbers);
+        EditText numbers = findViewById(R.id.password_numbers);
         String numbersString = numbers.getText().toString();
         int numbersLength = numbersString.length();
 
-        EditText symbols = (EditText) findViewById(R.id.password_symbols);
+        EditText symbols = findViewById(R.id.password_symbols);
         String symbolsString = symbols.getText().toString();
         int symbolsLength = symbolsString.length();
 
-        TextView output = (TextView) findViewById(R.id.password_output);
+        TextView output = findViewById(R.id.password_output);
 
         boolean error = false;
 
@@ -505,7 +487,7 @@ public class Main extends AppCompatActivity {
             symbolsInt = Integer.parseInt(symbolsString);
         }
 
-        String outputString = "";
+        StringBuilder outputString = new StringBuilder();
 
         /*
         Populate allWords
@@ -517,7 +499,7 @@ public class Main extends AppCompatActivity {
          */
         if (allWords == null) {
             error = true;
-            outputString = "Error reading file";
+            outputString.append("Error reading file");
         }
 
         if (!error) {
@@ -530,14 +512,14 @@ public class Main extends AppCompatActivity {
             /*
             Add contents to outputString
              */
-            for (int index = 0; index < wordsArray.length; index++) {
-                outputString += capitaliseFirstLetter(wordsArray[index]);
+            for (String word : wordsArray) {
+                outputString.append(capitaliseFirstLetter(word));
             }
-            for (int index = 0; index < digitArray.length; index++) {
-                outputString += digitArray[index];
+            for (int digit : digitArray) {
+                outputString.append(digit);
             }
-            for (int index = 0; index < symbolsArray.length; index++) {
-                outputString += symbolsArray[index];
+            for (char symbol : symbolsArray) {
+                outputString.append(symbol);
             }
 
         }
@@ -551,7 +533,7 @@ public class Main extends AppCompatActivity {
     Return a string with the fist letter capitalised
      */
     private String capitaliseFirstLetter(String string) {
-        return Character.toUpperCase(string.charAt(0)) + string.substring(1, string.length());
+        return Character.toUpperCase(string.charAt(0)) + string.substring(1);
     }
 
     /*
@@ -581,7 +563,7 @@ public class Main extends AppCompatActivity {
      */
     private String[] getAllWords() {
         String word = "";
-        List<String> allWords = new ArrayList<String>();
+        List<String> allWords = new ArrayList<>();
 
         InputStream inputStream = getResources().openRawResource(R.raw.words);
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
