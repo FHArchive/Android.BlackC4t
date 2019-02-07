@@ -5,7 +5,7 @@
 ## Java and Android Version
 This app has been written in the Java programming language with the Android Studio IDE.
 - The target SDK version is 28 (Android 9.0 Pie)
-- The minimum SDK version is 23 (Android 6.0 Marshmallow)
+- The minimum SDK version is 22 (Android 5.1 Lollipop)
 
 ## Download Android Studio
 Download the Android Studio IDE from https://developer.android.com/studio/. For Windows, double click the downloaded .exe file and follow the instructions provided by the installer - it will download the Android emulator and the Android SDK. Additional information can be found at https://developer.android.com/studio/install
