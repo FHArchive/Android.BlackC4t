@@ -6,20 +6,30 @@ android {
         applicationId "com.fredhappyface.blackc4t"
         minSdkVersion 22
         targetSdkVersion 28
-        versionCode 2
-        versionName "20190207"
+        versionCode 3
+        versionName "20190212"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
         android.applicationVariants.all { variant ->
             variant.outputs.each { output ->
                 output.outputFileName = output.outputFileName.replace(".apk", "-" + defaultConfig.versionName + ".apk")
             }
         }
 
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+            /*
+            android.applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFileName = output.outputFileName.replace("release.apk", "release-" + defaultConfig.versionName + ".apk")
+                }
+            }
+            */
         }
     }
     productFlavors {

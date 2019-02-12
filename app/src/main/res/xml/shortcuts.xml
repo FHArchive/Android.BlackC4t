@@ -4,7 +4,7 @@
     <shortcut
             android:shortcutId="otp"
             android:enabled="true"
-            android:icon="@drawable/ic_otp"
+            android:icon="@drawable/ic_otp2"
             android:shortcutShortLabel="@string/shortcut_otp_shortname"
             android:shortcutLongLabel="@string/shortcut_otp_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
@@ -46,7 +46,7 @@
     <shortcut
             android:shortcutId="password"
             android:enabled="true"
-            android:icon="@drawable/ic_password"
+            android:icon="@drawable/ic_password2"
             android:shortcutShortLabel="@string/shortcut_password_shortname"
             android:shortcutLongLabel="@string/shortcut_password_longname"
             android:shortcutDisabledMessage="@string/shortcut_disabled">
