@@ -46,7 +46,7 @@
 
     <string name="about_head">About</string>
     <string name="about_description">This app exists to provide a proof of concept for various encryption methods
-        and password generators that are written in Javascript. </string>
+        and password generators that are written in Java. </string>
     <string name="about_otp_head">One Time Pad</string>
     <string name="about_otp_description">BlackC4t One Time Pad (OTP) requires the use of a pre-shared key to encrypt
         plain text. OTP is a form of symmetric encryption (it is also proof of concept) and is therefore not recommended
