@@ -1,4 +1,6 @@
 # Android.Blackc4t
+This app exists to provide a proof of concept for various encryption methods
+and password generators that are written in Java.
 
 # Language Information 
 
