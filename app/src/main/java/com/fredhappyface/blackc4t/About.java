@@ -1,9 +1,8 @@
 package com.fredhappyface.blackc4t;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
-public class About extends AppCompatActivity {
+public class About extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

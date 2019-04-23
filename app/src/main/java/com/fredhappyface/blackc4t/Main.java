@@ -7,8 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,7 +22,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-public class Main extends AppCompatActivity {
+public class Main extends BaseActivity {
 
     final static Locale locale = Locale.ENGLISH;
 
@@ -33,10 +31,6 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        // Create the adapter that will return a fragment for each of the three
-        // primary sections of the activity.
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
@@ -79,12 +73,14 @@ public class Main extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here.
         int id = item.getItemId();
-        /*
+
+
         if (id == R.id.action_settings) {
             startActivity(new Intent(this, Settings.class));
             return true;
         }
-        */
+
+
         if (id == R.id.action_about) {
             startActivity(new Intent(this, About.class));
             return true;
@@ -166,7 +162,7 @@ public class Main extends AppCompatActivity {
          */
         if (keyLength < 1) {
             error = true;
-            outputString.append( "Enter a key");
+            outputString.append("Enter a key");
         }
 
         /*
@@ -186,7 +182,7 @@ public class Main extends AppCompatActivity {
                 } else {
                     outChar = (char) (messageChar + keyChar);
                 }
-                outputString.append( outChar);
+                outputString.append(outChar);
 
             }
         }
@@ -231,7 +227,7 @@ public class Main extends AppCompatActivity {
          */
         if (keyLength1 < 1 || keyLength2 < 1) {
             error = true;
-            outputString.append( "Enter both keys");
+            outputString.append("Enter both keys");
         }
 
         /*
@@ -255,7 +251,7 @@ public class Main extends AppCompatActivity {
                 } else {
                     outChar = (char) (messageChar + keyChar);
                 }
-                outputString.append( outChar);
+                outputString.append(outChar);
             }
         }
 
@@ -360,9 +356,9 @@ public class Main extends AppCompatActivity {
         /*
         Fill the modulus, public and private fields
          */
-        modulus.setText(String.format(locale,"%d",modulusInt));
-        publicKey.setText(String.format(locale,"%d",publicKeyInt));
-        privateKey.setText(String.format(locale,"%d",privateKeyInt));
+        modulus.setText(String.format(locale, "%d", modulusInt));
+        publicKey.setText(String.format(locale, "%d", publicKeyInt));
+        privateKey.setText(String.format(locale, "%d", privateKeyInt));
 
 
         /*

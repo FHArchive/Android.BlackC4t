@@ -1,67 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:focusable="true"
             android:importantForAutofill="noExcludeDescendants"
-            android:focusableInTouchMode="true"
-            >
+            android:focusableInTouchMode="true">
 
             <EditText
                 android:inputType="textMultiLine"
                 android:id="@+id/pke_message"
                 android:hint="@string/encrypt_message_hint"
-                style="@style/code_text_style"
-                />
+                style="@style/code_text_style" />
+
             <ToggleButton
                 android:text="@string/encrypt_toggle_button"
                 style="@style/button_style"
                 android:id="@+id/pke_decrypt"
                 android:textOff="@string/encrypt_toggle_button_off"
-                android:textOn="@string/encrypt_toggle_button_on"
-                />
+                android:textOn="@string/encrypt_toggle_button_on" />
 
             <EditText
                 android:inputType="text"
                 android:id="@+id/pke_modulus"
                 android:singleLine="false"
                 android:hint="@string/pke_mod_hint"
-                style="@style/code_text_style"
-                />
+                style="@style/code_text_style" />
+
             <EditText
                 android:inputType="text"
                 android:id="@+id/pke_publickey"
                 android:singleLine="false"
                 android:hint="@string/pke_public_hint"
-                style="@style/code_text_style"
-                />
+                style="@style/code_text_style" />
+
             <EditText
                 android:inputType="text"
                 android:id="@+id/pke_privatekey"
                 android:singleLine="false"
                 android:hint="@string/pke_private_hint"
-                style="@style/code_text_style"
-                />
+                style="@style/code_text_style" />
 
             <TextView
                 android:text="@string/frag_output_text"
                 style="@style/code_text_style"
                 android:background="@drawable/output"
                 android:id="@+id/pke_output"
-                android:textIsSelectable="true"
-                />
+                android:textIsSelectable="true" />
         </LinearLayout>
     </ScrollView>
 
@@ -72,14 +70,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/linearLayout"
-    >
+        android:id="@+id/linearLayout">
+
         <Button
             android:text="@string/frag_run_text"
             android:background="@drawable/button"
             style="@style/button_style"
-            android:id="@+id/button4"
             android:layout_weight="1"
-            android:onClick="runPKE"/>
+            android:onClick="runPKE" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
