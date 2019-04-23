@@ -22,7 +22,7 @@
             <ImageView
                 android:contentDescription="@string/two_image_description"
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:layout_height="180dp"
                 app:srcCompat="@drawable/shiba_inu_wide"
                 android:scaleType="centerCrop"
                 android:cropToPadding="false"

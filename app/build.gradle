@@ -6,7 +6,7 @@ android {
         applicationId "com.fredhappyface.blackc4t"
         minSdkVersion 22
         targetSdkVersion 28
-        versionCode 5
+        versionCode 6
         versionName "20190423"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
