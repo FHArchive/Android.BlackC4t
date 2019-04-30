@@ -17,6 +17,7 @@ import android.widget.ToggleButton;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -24,10 +25,10 @@ import java.util.Locale;
 
 public class Main extends BaseActivity {
 
-    final static Locale locale = Locale.ENGLISH;
+    private final static Locale locale = Locale.ENGLISH;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    final protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -60,7 +61,7 @@ public class Main extends BaseActivity {
     Create the overflow menu
      */
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    final public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -70,7 +71,7 @@ public class Main extends BaseActivity {
     Do when an option has been selected
      */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    final public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here.
         int id = item.getItemId();
 
@@ -93,7 +94,7 @@ public class Main extends BaseActivity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+    class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         private SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -103,7 +104,7 @@ public class Main extends BaseActivity {
          * Add each fragment to each tab. So Tab_Home -> Frag_OTP, Tab_otp -> Frag_otp ...
          */
         @Override
-        public Fragment getItem(int position) {
+        final public Fragment getItem(int position) {
             // Switch case for each fragment
             Fragment fragment = null;
             switch (position) {
@@ -128,13 +129,13 @@ public class Main extends BaseActivity {
         Show total number of pages
          */
         @Override
-        public int getCount() {
+        final public int getCount() {
             return 4;
         }
     }
 
 
-    public void runOTP(View v) {
+    final public void runOTP(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -195,7 +196,7 @@ public class Main extends BaseActivity {
     }
 
 
-    public void run2KOTP(View v) {
+    final public void run2KOTP(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -262,7 +263,7 @@ public class Main extends BaseActivity {
 
     }
 
-    public void runPKE(View v) {
+    final public void runPKE(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -411,7 +412,8 @@ public class Main extends BaseActivity {
     Returns random int between min and max (inclusive)
      */
     private int getRandomInt(int min, int max) {
-        return (int) ((Math.random() * (max - min)) + min);
+        SecureRandom random = new SecureRandom();
+        return (int) ((random.nextDouble() * (max - min)) + min);
     }
 
     /*
@@ -447,7 +449,7 @@ public class Main extends BaseActivity {
         }
     }
 
-    public void runPassword(View v) {
+    final public void runPassword(View v) {
         /*
         Get objects, strings and lengths
          */
@@ -558,7 +560,7 @@ public class Main extends BaseActivity {
     Get the list of words from the text file
      */
     private String[] getAllWords() {
-        String word = "";
+        String word;
         List<String> allWords = new ArrayList<>();
 
         InputStream inputStream = getResources().openRawResource(R.raw.words);

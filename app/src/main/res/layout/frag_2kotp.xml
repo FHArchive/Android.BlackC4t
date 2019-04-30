@@ -80,7 +80,6 @@
             android:text="@string/frag_run_text"
             android:background="@drawable/button"
             style="@style/button_style"
-            android:layout_weight="1"
             android:onClick="run2KOTP" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

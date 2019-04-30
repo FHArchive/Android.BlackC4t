@@ -64,11 +64,6 @@
     <string name="settings_theme_radio2">Dark</string>
     <string name="settings_theme_radio3">Black</string>
     <string name="settings_theme_button">💾 Save Theme</string>
-    <string name="settings_text">Text Size</string>
-    <string name="settings_text_radio1">Small</string>
-    <string name="settings_text_radio2">Medium</string>
-    <string name="settings_text_radio3">Large</string>
-    <string name="settings_text_button">💾 Save Text Size</string>
 
 
 </resources>
