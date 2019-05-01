@@ -6,8 +6,8 @@ android {
         applicationId "com.fredhappyface.blackc4t"
         minSdkVersion 22
         targetSdkVersion 28
-        versionCode 6
-        versionName "20190423"
+        versionCode 7
+        versionName "20190501"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -20,16 +20,10 @@ android {
 
 
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-            /*
-            android.applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    output.outputFileName = output.outputFileName.replace("release.apk", "release-" + defaultConfig.versionName + ".apk")
-                }
-            }
-            */
+
         }
     }
     productFlavors {
