@@ -29,11 +29,11 @@
             style="@style/body_text_style" />
 
         <TextView
-            android:text="@string/about_2kotp_head"
+            android:text="@string/about_two_key_head"
             style="@style/heading_text_style" />
 
         <TextView
-            android:text="@string/about_2kotp_description"
+            android:text="@string/about_two_key_description"
             style="@style/body_text_style" />
 
         <TextView

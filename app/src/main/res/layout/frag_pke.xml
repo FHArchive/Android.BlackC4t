@@ -42,14 +42,14 @@
 
             <EditText
                 android:inputType="text"
-                android:id="@+id/pke_publickey"
+                android:id="@+id/pke_public_key"
                 android:singleLine="false"
                 android:hint="@string/pke_public_hint"
                 style="@style/code_text_style" />
 
             <EditText
                 android:inputType="text"
-                android:id="@+id/pke_privatekey"
+                android:id="@+id/pke_private_key"
                 android:singleLine="false"
                 android:hint="@string/pke_private_hint"
                 style="@style/code_text_style" />

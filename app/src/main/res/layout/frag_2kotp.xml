@@ -31,7 +31,7 @@
             <EditText
                 android:background="@drawable/textbox"
                 android:inputType="text"
-                android:id="@+id/kotp_key1"
+                android:id="@+id/two_key_key1"
                 android:singleLine="false"
                 android:hint="@string/encrypt_key1_hint"
                 style="@style/code_text_style" />
@@ -39,7 +39,7 @@
             <EditText
                 android:background="@drawable/textbox"
                 android:inputType="text"
-                android:id="@+id/kotp_key2"
+                android:id="@+id/two_key_key2"
                 android:singleLine="false"
                 android:hint="@string/encrypt_key2_hint"
                 style="@style/code_text_style" />
@@ -47,13 +47,13 @@
             <EditText
                 style="@style/code_text_style"
                 android:inputType="textMultiLine"
-                android:id="@+id/kotp_message"
+                android:id="@+id/two_key_message"
                 android:hint="@string/encrypt_message_hint" />
 
             <ToggleButton
                 android:text="@string/encrypt_toggle_button"
                 style="@style/button_style"
-                android:id="@+id/kotp_decrypt"
+                android:id="@+id/two_key_decrypt"
                 android:textOff="@string/encrypt_toggle_button_off"
                 android:textOn="@string/encrypt_toggle_button_on"
                 app:layout_constraintHorizontal_bias="0.0" />
@@ -63,7 +63,7 @@
                 style="@style/code_text_style"
                 android:background="@drawable/output"
                 android:textIsSelectable="true"
-                android:id="@+id/kotp_output" />
+                android:id="@+id/two_key_output" />
         </LinearLayout>
     </ScrollView>
 
@@ -80,6 +80,6 @@
             android:text="@string/frag_run_text"
             android:background="@drawable/button"
             style="@style/button_style"
-            android:onClick="run2KOTP" />
+            android:onClick="runTwoKey" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

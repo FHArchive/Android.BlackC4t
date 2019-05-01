@@ -5,8 +5,8 @@
         android:shortcutId="otp"
         android:enabled="true"
         android:icon="@drawable/ic_otp"
-        android:shortcutShortLabel="@string/shortcut_otp_shortname"
-        android:shortcutLongLabel="@string/shortcut_otp_longname"
+        android:shortcutShortLabel="@string/shortcut_otp_short_name"
+        android:shortcutLongLabel="@string/shortcut_otp_long_name"
         android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
             android:data="0"
@@ -16,11 +16,11 @@
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
-        android:shortcutId="2kotp"
+        android:shortcutId="two_key"
         android:enabled="true"
-        android:icon="@drawable/ic_2kotpshibe"
-        android:shortcutShortLabel="@string/shortcut_2kotp_shortname"
-        android:shortcutLongLabel="@string/shortcut_2kotp_longname"
+        android:icon="@drawable/ic_two_key"
+        android:shortcutShortLabel="@string/shortcut_two_key_short_name"
+        android:shortcutLongLabel="@string/shortcut_two_key_long_name"
         android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
             android:data="1"
@@ -33,8 +33,8 @@
         android:shortcutId="pke"
         android:enabled="true"
         android:icon="@drawable/ic_public"
-        android:shortcutShortLabel="@string/shortcut_pke_shortname"
-        android:shortcutLongLabel="@string/shortcut_pke_longname"
+        android:shortcutShortLabel="@string/shortcut_pke_short_name"
+        android:shortcutLongLabel="@string/shortcut_pke_long_name"
         android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
             android:data="2"
@@ -47,8 +47,8 @@
         android:shortcutId="password"
         android:enabled="true"
         android:icon="@drawable/ic_password"
-        android:shortcutShortLabel="@string/shortcut_password_shortname"
-        android:shortcutLongLabel="@string/shortcut_password_longname"
+        android:shortcutShortLabel="@string/shortcut_password_short_name"
+        android:shortcutLongLabel="@string/shortcut_password_long_name"
         android:shortcutDisabledMessage="@string/shortcut_disabled">
         <intent
             android:data="3"

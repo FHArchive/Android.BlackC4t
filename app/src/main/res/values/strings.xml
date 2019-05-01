@@ -5,20 +5,20 @@
     <string name="action_about">About</string>
 
     <string name="tab_text_otp">One Key</string>
-    <string name="tab_text_2kotp">Two Key</string>
+    <string name="tab_text_two_key">Two Key</string>
     <string name="tab_text_pke">Public</string>
     <string name="tab_text_password">Pwd Gen</string>
 
     <string name="shortcut_disabled">Shortcut Disabled</string>
 
-    <string name="shortcut_otp_shortname">One Key</string>
-    <string name="shortcut_otp_longname">One Time Pad</string>
-    <string name="shortcut_2kotp_shortname">Two Key</string>
-    <string name="shortcut_2kotp_longname">Two Key One Time Pad</string>
-    <string name="shortcut_password_shortname">Pwd Gen</string>
-    <string name="shortcut_password_longname">Password Generator</string>
-    <string name="shortcut_pke_shortname">Public</string>
-    <string name="shortcut_pke_longname">Public Key Encryption</string>
+    <string name="shortcut_otp_short_name">One Key</string>
+    <string name="shortcut_otp_long_name">One Time Pad</string>
+    <string name="shortcut_two_key_short_name">Two Key</string>
+    <string name="shortcut_two_key_long_name">Two Key One Time Pad</string>
+    <string name="shortcut_password_short_name">Pwd Gen</string>
+    <string name="shortcut_password_long_name">Password Generator</string>
+    <string name="shortcut_pke_short_name">Public</string>
+    <string name="shortcut_pke_long_name">Public Key Encryption</string>
 
     <string name="two_image_description">Image of Shibe</string>
     <string name="encrypt_key_hint">Key</string>
@@ -48,8 +48,8 @@
     <string name="about_otp_description">BlackC4t One Time Pad (OTP) requires the use of a pre-shared key to encrypt
         plain text. OTP is a form of symmetric encryption (it is also proof of concept) and is therefore not recommended
         to be used as a primary form of encryption. </string>
-    <string name="about_2kotp_head">Two Key One Time Pad (Shibe)</string>
-    <string name="about_2kotp_description">Uses the One Time Pad encryption with 2 keys.</string>
+    <string name="about_two_key_head">Two Key One Time Pad (Shibe)</string>
+    <string name="about_two_key_description">Uses the One Time Pad encryption with 2 keys.</string>
     <string name="about_pke_head">Public Key Cryptography</string>
     <string name="about_pke_description">Uses a Modulus and Public Key to encrypt, and the Modulus and the Private
         Key to Decrypt Note that this is proof of concept. </string>

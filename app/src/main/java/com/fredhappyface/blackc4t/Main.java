@@ -196,26 +196,26 @@ public class Main extends BaseActivity {
     }
 
 
-    final public void run2KOTP(View v) {
+    final public void runTwoKey(View v) {
         /*
         Get objects, strings and lengths
          */
-        EditText message = findViewById(R.id.kotp_message);
+        EditText message = findViewById(R.id.two_key_message);
         String messageString = message.getText().toString();
         int messageLength = messageString.length();
 
-        EditText key1 = findViewById(R.id.kotp_key1);
+        EditText key1 = findViewById(R.id.two_key_key1);
         String keyString1 = key1.getText().toString();
         int keyLength1 = keyString1.length();
 
-        EditText key2 = findViewById(R.id.kotp_key2);
+        EditText key2 = findViewById(R.id.two_key_key2);
         String keyString2 = key2.getText().toString();
         int keyLength2 = keyString2.length();
 
-        ToggleButton toggle = findViewById(R.id.kotp_decrypt);
+        ToggleButton toggle = findViewById(R.id.two_key_decrypt);
         boolean decrypt = toggle.isChecked();
 
-        TextView output = findViewById(R.id.kotp_output);
+        TextView output = findViewById(R.id.two_key_output);
 
         /*
         Define other variables
@@ -275,11 +275,11 @@ public class Main extends BaseActivity {
         String modulusString = modulus.getText().toString();
         int modulusLength = modulusString.length();
 
-        EditText publicKey = findViewById(R.id.pke_publickey);
+        EditText publicKey = findViewById(R.id.pke_public_key);
         String publicKeyString = publicKey.getText().toString();
         int publicKeyLength = publicKeyString.length();
 
-        EditText privateKey = findViewById(R.id.pke_privatekey);
+        EditText privateKey = findViewById(R.id.pke_private_key);
         String privateKeyString = privateKey.getText().toString();
         int privateKeyLength = privateKeyString.length();
 
@@ -365,21 +365,21 @@ public class Main extends BaseActivity {
         /*
         Do the encryption/ decryption
          */
-        StringBuilder outstring = new StringBuilder();
+        StringBuilder outString = new StringBuilder();
         for (int index = 0; (index < messageLength); index += 1) {
             int charInt;
             if ((!decrypt)) {
-                charInt = pkeExpmod(messageString.charAt(index), publicKeyInt, modulusInt);
+                charInt = pkeExpMod(messageString.charAt(index), publicKeyInt, modulusInt);
             } else {
-                charInt = pkeExpmod(messageString.charAt(index), privateKeyInt, modulusInt);
+                charInt = pkeExpMod(messageString.charAt(index), privateKeyInt, modulusInt);
             }
-            outstring.append((char) (charInt));
+            outString.append((char) (charInt));
         }
 
         /*
         Write to output
          */
-        output.setText(outstring.toString());
+        output.setText(outString.toString());
 
     }
 
@@ -417,7 +417,7 @@ public class Main extends BaseActivity {
     }
 
     /*
-    Finds the Highest Common Factor or argument a and arguement b
+    Finds the Highest Common Factor or argument a and argument b
      */
     private int pkeHighestCommonFactor(int a, int b) {
         if (b == 0) {
@@ -439,13 +439,13 @@ public class Main extends BaseActivity {
         return 1;
     }
 
-    private int pkeExpmod(int base, int exp, int mod) {
+    private int pkeExpMod(int base, int exp, int mod) {
         if (exp == 0) return 1;
         if (exp % 2 == 0) {
-            int expmod = pkeExpmod(base, (exp / 2), mod);
-            return (int) (Math.pow(expmod, 2) % mod);
+            int expMod = pkeExpMod(base, (exp / 2), mod);
+            return (int) (Math.pow(expMod, 2) % mod);
         } else {
-            return (base * pkeExpmod(base, (exp - 1), mod)) % mod;
+            return (base * pkeExpMod(base, (exp - 1), mod)) % mod;
         }
     }
 
