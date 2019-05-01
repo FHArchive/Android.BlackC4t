@@ -1,4 +1,6 @@
 # Android.Blackc4t
+<img src="readme-assets/icons/app-icon.png" alt="Theme 1" width="100">
+
 This app exists to provide a proof of concept for various encryption methods
 and password generators that are written in Java.
 
@@ -25,7 +27,7 @@ Note that the app name denoted [app_name] in this document is the repository nam
 1. Open the Google Play app
 2. Search for [app_name] 
 ### Or
-[<img src="readme-assets/google-play-download.png"
+[<img src="readme-assets/badges/google-play-download.png"
       alt="Get it on Google Play"   height="80">](https://play.google.com/store/apps/)
 
 Follow the link to the listing on Google Play by clicking on the badge above, then download/ install
@@ -36,7 +38,7 @@ Follow the link to the listing on Google Play by clicking on the badge above, th
 1. Open the Amazon Appstore (can be downloaded from https://www.amazon.co.uk/androidapp)
 2. Search for [app_name] 
 ### Or
-[<img src="readme-assets/amazon-appstore-download.png"
+[<img src="readme-assets/badges/amazon-appstore-download.png"
       alt="Available at Amazon Appstore"   height="80">](http://www.amazon.com/gp/mas/dl/android?p=com.fredhappyface.blackc4t&ref=mas_pm_BlackC4t)
 
 Follow the link to the listing on the Amazon Appstore by clicking on the badge above, then download/ install
@@ -46,7 +48,7 @@ Follow the link to the listing on the Amazon Appstore by clicking on the badge a
 1. Navigate to the [app_name]-APKs directory
 2. Select the debug or release APK depending on your preference. Note that the filenames are in the form: app-[debug/release]-yyyymmdd.apk (I would recommend downloading the most recent release APK)
 ### Or
-[<img src="readme-assets/direct-apk-download.png"
+[<img src="readme-assets/badges/direct-apk-download.png"
       alt="Direct apk download"   height="80">](/BlackC4t-APKs)
 
 Follow the link to the APKs directory by clicking on the badge above, then select the preferred APK
@@ -56,7 +58,7 @@ Follow the link to the APKs directory by clicking on the badge above, then selec
 1. Go to https://m.apkpure.com or open the APKPure app
 2. Search for [app_name] or com.fredhappyface.[app_name]
 ### Or
-[<img src="readme-assets/apkpure-download.png"
+[<img src="readme-assets/badges/apkpure-download.png"
       alt="Get it on APKPure"   height="80">](https://apkpure.com/[app_name]/[package_name])
 
 Follow the link to the listing on apkpure.com by clicking on the badge above, then download/ install
@@ -69,7 +71,15 @@ Copyright (c) Kieran W
 
 
 # Screenshots
+## General Usage 
 |Screenshots| |
 |:-:|:-:|
-| <img src="readme-assets/screenshot-1.PNG" alt="Screenshot 1" width="300"> | <img src="readme-assets/screenshot-2.PNG" alt="Screenshot 2" width="300"> |
-| <img src="readme-assets/screenshot-3.PNG" alt="Screenshot 3" width="300"> | <img src="readme-assets/screenshot-4.PNG" alt="Screenshot 4" width="300"> |
+| <img src="readme-assets/screenshots/screenshot-1.png" alt="Screenshot 1" width="300"> | <img src="readme-assets/screenshots/screenshot-2.png" alt="Screenshot 2" width="300"> |
+| <img src="readme-assets/screenshots/screenshot-3.png" alt="Screenshot 3" width="300"> | <img src="readme-assets/screenshots/screenshot-4.png" alt="Screenshot 4" width="300"> |
+| <img src="readme-assets/screenshots/screenshot-5.png" alt="Screenshot 5" width="300"> | <img src="readme-assets/screenshots/screenshot-6.png" alt="Screenshot 6" width="300"> |
+
+
+## Themes 
+|Light|Dark|Black|
+|:-:|:-:|:-:|
+| <img src="readme-assets/themes/theme-1.png" alt="Theme 1" width="200"> | <img src="readme-assets/themes/theme-2.png" alt="Theme 2" width="200"> | <img src="readme-assets/themes/theme-3.png" alt="Theme 3" width="200"> |
