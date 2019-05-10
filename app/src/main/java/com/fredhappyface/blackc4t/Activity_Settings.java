@@ -16,7 +16,7 @@ public class Activity_Settings extends Abstract_Activity {
 
 
     public final void changeTheme(final View view) {
-        RadioGroup themeChoices = findViewById(R.id.theme);
+        final RadioGroup themeChoices = findViewById(R.id.theme);
 
         final int radioButtonID = themeChoices.getCheckedRadioButtonId();
         final View radioButton = themeChoices.findViewById(radioButtonID);

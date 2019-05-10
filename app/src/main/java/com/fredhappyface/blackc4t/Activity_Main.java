@@ -31,21 +31,21 @@ public class Activity_Main extends Abstract_Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        TabLayout tabLayout = findViewById(R.id.tabs);
+        final TabLayout tabLayout = findViewById(R.id.tabs);
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         int page = 0;
-        String data = intent.getDataString();
+        final String data = intent.getDataString();
 
         if (data != null) {
             page = Integer.parseInt(data);
@@ -95,7 +95,7 @@ public class Activity_Main extends Abstract_Activity {
      */
     class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        private SectionsPagerAdapter(FragmentManager fragmentManager) {
+        private SectionsPagerAdapter(final FragmentManager fragmentManager) {
             super(fragmentManager);
         }
 
@@ -296,9 +296,10 @@ public class Activity_Main extends Abstract_Activity {
             modulusInt = prime0 * prime1;
 
             /*
-            Generate the euler totient - this is used to generate the private key exponent from the public key exponent
+            Generate the euler totient - this is used to generate the private key exponent from
+            the public key exponent
              */
-            int eulerTotient = (prime0 - 1) * (prime1 - 1);
+            final int eulerTotient = (prime0 - 1) * (prime1 - 1);
 
             /*
             Use Euclid's Algorithm to verify that publicKeyExponent and eulerTotient are coprime
@@ -331,13 +332,14 @@ public class Activity_Main extends Abstract_Activity {
         /*
         Do the encryption/ decryption
          */
-        StringBuilder outString = new StringBuilder();
+        final StringBuilder outString = new StringBuilder();
         for (int index = 0; (index < messageLength); index += 1) {
             int charInt;
-            if ((!decrypt)) {
-                charInt = PublicKeyEncryption.pkeExpMod(messageString.charAt(index), publicKeyInt, modulusInt);
-            } else {
+            if (decrypt) {
                 charInt = PublicKeyEncryption.pkeExpMod(messageString.charAt(index), privateKeyInt, modulusInt);
+            } else {
+                charInt = PublicKeyEncryption.pkeExpMod(messageString.charAt(index), publicKeyInt, modulusInt);
+
             }
             outString.append((char) (charInt));
         }
@@ -351,7 +353,7 @@ public class Activity_Main extends Abstract_Activity {
 
 
 
-    final public void runPassword(View v) {
+    final public void runPassword(final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -392,7 +394,7 @@ public class Activity_Main extends Abstract_Activity {
         /*
         Populate allWords
          */
-        String[] allWords = getAllWords();
+        final String[] allWords = getAllWords();
 
         /*
         allWords can be null if the file cannot be read so report the error

@@ -1,7 +1,6 @@
 package com.fredhappyface.blackc4t;
 
-class Password {
-
+final class Password {
 
     /*
     Return a string with the fist letter capitalised
@@ -36,10 +35,10 @@ class Password {
     /*
     Return random words
      */
-    static String[] getRandomWord(final int quantity, final String[] allWords) {
+    static String[] getRandomWord(final int quantity, final String... allWords) {
         final String[] words = new String[quantity];
         for (int index = 0; index < quantity; index++) {
-            int line = Tools.getRandomInt(0, allWords.length);
+            final int line = Tools.getRandomInt(0, allWords.length);
             words[index] = allWords[line];
         }
         return words;

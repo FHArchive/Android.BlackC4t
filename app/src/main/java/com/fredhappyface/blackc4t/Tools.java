@@ -2,7 +2,7 @@ package com.fredhappyface.blackc4t;
 
 import java.security.SecureRandom;
 
-class Tools {
+final class Tools {
 
     static StringBuffer doOneTimePad(String keyString, final String messageString, final boolean decrypt){
 
@@ -31,7 +31,7 @@ class Tools {
 
     }
 
-    static StringBuffer doTwoKey(String keyString1, String keyString2, String messageString, boolean decrypt){
+    static StringBuffer doTwoKey(String keyString1, String keyString2, final String messageString, final boolean decrypt){
 
         final StringBuffer outputString = new StringBuffer();
         int keyLength1 = keyString1.length();
@@ -65,7 +65,7 @@ class Tools {
 
 
 
-    static StringBuffer doPassword(int wordsInt, int numbersInt, int symbolsInt, String[] allWords){
+    static StringBuffer doPassword(final int wordsInt, final int numbersInt, final int symbolsInt, final String... allWords){
 
         final StringBuffer outputString = new StringBuffer();
 
@@ -78,13 +78,13 @@ class Tools {
         /*
         Add contents to outputString
          */
-        for (String word : wordsArray) {
+        for (final String word : wordsArray) {
             outputString.append(Password.capitaliseFirstLetter(word));
         }
-        for (int digit : digitArray) {
+        for (final int digit : digitArray) {
             outputString.append(digit);
         }
-        for (char symbol : symbolsArray) {
+        for (final char symbol : symbolsArray) {
             outputString.append(symbol);
         }
 
