@@ -12,7 +12,7 @@
             android:data="0"
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.fredhappyface.blackc4t"
-            android:targetClass="com.fredhappyface.blackc4t.Main" />
+            android:targetClass="com.fredhappyface.blackc4t.Activity_Main" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -26,7 +26,7 @@
             android:data="1"
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.fredhappyface.blackc4t"
-            android:targetClass="com.fredhappyface.blackc4t.Main" />
+            android:targetClass="com.fredhappyface.blackc4t.Activity_Main" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -40,7 +40,7 @@
             android:data="2"
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.fredhappyface.blackc4t"
-            android:targetClass="com.fredhappyface.blackc4t.Main" />
+            android:targetClass="com.fredhappyface.blackc4t.Activity_Main" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -54,7 +54,7 @@
             android:data="3"
             android:action="android.intent.action.VIEW"
             android:targetPackage="com.fredhappyface.blackc4t"
-            android:targetClass="com.fredhappyface.blackc4t.Main" />
+            android:targetClass="com.fredhappyface.blackc4t.Activity_Main" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 </shortcuts>
