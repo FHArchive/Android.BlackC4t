@@ -2,6 +2,10 @@ package com.fredhappyface.blackc4t;
 
 final class Password {
 
+    private Password(){
+        throw new java.lang.UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+
     /*
     Return a string with the fist letter capitalised
      */

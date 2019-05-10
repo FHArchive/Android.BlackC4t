@@ -34,7 +34,7 @@ public class Activity_Main extends Abstract_Activity {
         final SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        ViewPager mViewPager = findViewById(R.id.container);
+        final ViewPager mViewPager = findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
         final TabLayout tabLayout = findViewById(R.id.tabs);
@@ -72,16 +72,16 @@ public class Activity_Main extends Abstract_Activity {
     @Override
     final public boolean onOptionsItemSelected(final MenuItem item) {
         // Handle action bar item clicks here.
-        int id = item.getItemId();
+        final int itemId = item.getItemId();
 
 
-        if (id == R.id.action_settings) {
+        if (itemId == R.id.action_settings) {
             startActivity(new Intent(this, Activity_Settings.class));
             return true;
         }
 
 
-        if (id == R.id.action_about) {
+        if (itemId == R.id.action_about) {
             startActivity(new Intent(this, Activity_About.class));
             return true;
         }
@@ -273,44 +273,10 @@ public class Activity_Main extends Abstract_Activity {
         generate publicKeyInt and privateKeyInt
          */
         if ((publicKeyLength < 1 && !decrypt) || (privateKeyLength < 1 && decrypt)) {
-            /*
-            Generate the seed prime numbers
-             */
-            boolean isPrime;
-            int prime0;
-            int prime1;
-            do {
-                prime0 = PublicKeyEncryption.pkePrimeGen(64, 256);
-                isPrime = PublicKeyEncryption.pkeIsPrime(prime0);
-            }
-            while (!isPrime);
-
-            do {
-                prime1 = PublicKeyEncryption.pkePrimeGen(64, 256);
-                isPrime = PublicKeyEncryption.pkeIsPrime(prime1);
-            }
-            while (!isPrime);
-            /*
-            Generate the key modulus - this is used in the encryption and decryption methods
-             */
-            modulusInt = prime0 * prime1;
-
-            /*
-            Generate the euler totient - this is used to generate the private key exponent from
-            the public key exponent
-             */
-            final int eulerTotient = (prime0 - 1) * (prime1 - 1);
-
-            /*
-            Use Euclid's Algorithm to verify that publicKeyExponent and eulerTotient are coprime
-             */
-
-            int factor;
-            do {
-                publicKeyInt = Tools.getRandomInt(1, eulerTotient);
-                factor = PublicKeyEncryption.pkeHighestCommonFactor(publicKeyInt, eulerTotient);
-            }
-            while (factor != 1);
+            final int result[] = PublicKeyEncryption.generate();
+            modulusInt = result[0];
+            final int eulerTotient = result[1];
+            publicKeyInt = result[2];
 
             /*
             Calculates the private key exponent from the public key exponent

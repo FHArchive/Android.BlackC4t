@@ -4,6 +4,10 @@ import java.security.SecureRandom;
 
 final class Tools {
 
+    private Tools(){
+        throw new java.lang.UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+
     static StringBuffer doOneTimePad(String keyString, final String messageString, final boolean decrypt){
 
         final StringBuffer outputString = new StringBuffer();
@@ -50,7 +54,7 @@ final class Tools {
             }
             final int keyChar = keyString1.charAt(index) + keyString2.charAt(index);
             final char messageChar = messageString.charAt(index);
-            final char outChar;
+            char outChar;
             if (decrypt) {
                 outChar = (char) (messageChar - keyChar);
             } else {
@@ -98,7 +102,7 @@ final class Tools {
    Returns random int between min and max (inclusive)
     */
     static int getRandomInt(final int min, final int max) {
-        SecureRandom random = new SecureRandom();
+        final SecureRandom random = new SecureRandom();
         return (int) ((random.nextDouble() * (max - min)) + min);
     }
 

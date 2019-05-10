@@ -2,6 +2,10 @@ package com.fredhappyface.blackc4t;
 
 final class PublicKeyEncryption {
 
+    private PublicKeyEncryption(){
+        throw new java.lang.UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    }
+
     /*
     Checks that the argument is a prime number
      */
@@ -62,5 +66,49 @@ final class PublicKeyEncryption {
         } else {
             return (base * pkeExpMod(base, (exp - 1), mod)) % mod;
         }
+    }
+
+    static int[] generate(){
+        /*
+            Generate the seed prime numbers
+             */
+        boolean isPrime;
+        int prime0;
+        int prime1;
+        do {
+            prime0 = PublicKeyEncryption.pkePrimeGen(64, 256);
+            isPrime = PublicKeyEncryption.pkeIsPrime(prime0);
+        }
+        while (!isPrime);
+
+        do {
+            prime1 = PublicKeyEncryption.pkePrimeGen(64, 256);
+            isPrime = PublicKeyEncryption.pkeIsPrime(prime1);
+        }
+        while (!isPrime);
+            /*
+            Generate the key modulus - this is used in the encryption and decryption methods
+             */
+        final int modulusInt = prime0 * prime1;
+
+            /*
+            Generate the euler totient - this is used to generate the private key exponent from
+            the public key exponent
+             */
+        final int eulerTotient = (prime0 - 1) * (prime1 - 1);
+
+            /*
+            Use Euclid's Algorithm to verify that publicKeyExponent and eulerTotient are coprime
+             */
+
+        int factor;
+        int publicKeyInt;
+        do {
+            publicKeyInt = Tools.getRandomInt(1, eulerTotient);
+            factor = PublicKeyEncryption.pkeHighestCommonFactor(publicKeyInt, eulerTotient);
+        }
+        while (factor != 1);
+
+        return new int[] {modulusInt, eulerTotient, publicKeyInt};
     }
 }
