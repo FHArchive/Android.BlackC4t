@@ -1,12 +1,8 @@
-<!--
-TODO: replace fredhappyface and :repository: with yours. Optional: link account to 
-Codacy and replace :codacy-proj-id: with your project id
--->
 
 <p float="left">
 <img src="https://img.shields.io/github/languages/top/fredhappyface/Android.BlackC4t.svg?style=flat-square" alt="Github top language">
-<img src="https://img.shields.io/codacy/grade/:codacy-proj-id:.svg?style=flat-square" alt="Codacy grade">
-<img src="https://img.shields.io/codacy/coverage/:codacy-proj-id:.svg?style=flat-square" alt="Codacy coverage">
+<img src="https://img.shields.io/codacy/grade/abb507590e1644358e6630a4a06b20de.svg?style=flat-square" alt="Codacy grade">
+<img src="https://img.shields.io/codacy/coverage/abb507590e1644358e6630a4a06b20de.svg?style=flat-square" alt="Codacy coverage">
 <img src="https://img.shields.io/github/repo-size/fredhappyface/Android.BlackC4t.svg?style=flat-square" alt="Repository size">
 <img src="https://img.shields.io/github/issues/fredhappyface/Android.BlackC4t.svg?style=flat-square" alt="Issues">
 <img src="https://img.shields.io/github/license/fredhappyface/Android.BlackC4t.svg?style=flat-square" alt="License">
