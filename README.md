@@ -96,8 +96,7 @@ then download/ install
 2. Search for :name:
 #### Or
 [<img src="readme-assets/badges/amazon-appstore-download.png"
-      alt="Available at Amazon Appstore"   height="80">]
-(http://www.amazon.com/gp/mas/dl/android?p=:package:&ref=mas_pm_:name:)
+      alt="Available at Amazon Appstore"   height="80">](http://www.amazon.com/gp/mas/dl/android?p=com.fredhappyface.blackc4t&ref=mas_pm_blackc4t)
 
 Follow the link to the listing on the Amazon Appstore by clicking on the badge 
 above, then download/ install
