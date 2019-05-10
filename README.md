@@ -134,7 +134,7 @@ then download/ install
 -->
 
 
-# Licence 
+## Licence 
 MIT License
 Copyright (c) fredhappyface
 (See the [LICENSE](/LICENSE.md) for more information.)
