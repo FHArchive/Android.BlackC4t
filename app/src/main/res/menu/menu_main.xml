@@ -8,12 +8,14 @@
         android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:icon="@drawable/settings"
+        app:showAsAction="always" />
 
 
     <item
         android:id="@+id/action_about"
         android:title="@string/action_about"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:icon="@drawable/info"
+        app:showAsAction="always" />
 </menu>

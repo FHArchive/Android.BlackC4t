@@ -24,10 +24,10 @@ import java.util.Locale;
 
 public class Activity_Main extends Abstract_Activity {
 
-    private final static Locale LOCALE = Locale.ENGLISH;
+    private static final Locale LOCALE = Locale.ENGLISH;
 
     @Override
-    final protected void onCreate(final Bundle savedInstanceState) {
+    protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -60,7 +60,7 @@ public class Activity_Main extends Abstract_Activity {
     Create the overflow menu
      */
     @Override
-    final public boolean onCreateOptionsMenu(final Menu menu) {
+    public final boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -70,7 +70,7 @@ public class Activity_Main extends Abstract_Activity {
     Do when an option has been selected
      */
     @Override
-    final public boolean onOptionsItemSelected(final MenuItem item) {
+    public final boolean onOptionsItemSelected(final MenuItem item) {
         // Handle action bar item clicks here.
         final int itemId = item.getItemId();
 
@@ -93,19 +93,19 @@ public class Activity_Main extends Abstract_Activity {
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
      */
-    class SectionsPagerAdapter extends FragmentPagerAdapter {
+    static class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         private SectionsPagerAdapter(final FragmentManager fragmentManager) {
-            super(fragmentManager);
+            super(fragmentManager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
         }
 
         /*
          * Add each fragment to each tab. So Tab_Home -> Frag_OTP, Tab_otp -> Frag_otp ...
          */
         @Override
-        final public Fragment getItem(final int position) {
+        public final Fragment getItem(final int position) {
             // Switch case for each fragment
-            Fragment fragment = null;
+            final Fragment fragment;
             switch (position) {
                 case 0:
                     fragment = new Frag_OTP();
@@ -116,10 +116,8 @@ public class Activity_Main extends Abstract_Activity {
                 case 2:
                     fragment = new Frag_PKE();
                     break;
-                case 3:
-                    fragment = new Frag_Password();
-                    break;
                 default:
+                    fragment = new Frag_Password();
                     break;
 
             }
@@ -130,13 +128,13 @@ public class Activity_Main extends Abstract_Activity {
         Show total number of pages
          */
         @Override
-        final public int getCount() {
+        public final int getCount() {
             return 4;
         }
     }
 
 
-    final public void runOTP(final View view) {
+    public final void runOTP(final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -181,7 +179,7 @@ public class Activity_Main extends Abstract_Activity {
     }
 
 
-    final public void runTwoKey(final View view) {
+    public final void runTwoKey(final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -229,7 +227,7 @@ public class Activity_Main extends Abstract_Activity {
 
     }
 
-    final public void runPKE(final View view) {
+    public final void runPKE(final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -258,8 +256,8 @@ public class Activity_Main extends Abstract_Activity {
         Define other variables
          */
         int modulusInt = 0;
-        int publicKeyInt;
-        int privateKeyInt;
+        final int publicKeyInt;
+        final int privateKeyInt;
 
         /*
         Get the modulus
@@ -273,7 +271,7 @@ public class Activity_Main extends Abstract_Activity {
         generate publicKeyInt and privateKeyInt
          */
         if ((publicKeyLength < 1 && !decrypt) || (privateKeyLength < 1 && decrypt)) {
-            final int result[] = PublicKeyEncryption.generate();
+            final int[] result = PublicKeyEncryption.generate();
             modulusInt = result[0];
             final int eulerTotient = result[1];
             publicKeyInt = result[2];
@@ -300,7 +298,7 @@ public class Activity_Main extends Abstract_Activity {
          */
         final StringBuilder outString = new StringBuilder();
         for (int index = 0; (index < messageLength); index += 1) {
-            int charInt;
+            final int charInt;
             if (decrypt) {
                 charInt = PublicKeyEncryption.pkeExpMod(messageString.charAt(index), privateKeyInt, modulusInt);
             } else {
@@ -319,7 +317,7 @@ public class Activity_Main extends Abstract_Activity {
 
 
 
-    final public void runPassword(final View view) {
+    public final void runPassword(final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -394,7 +392,7 @@ public class Activity_Main extends Abstract_Activity {
             while ((word = reader.readLine()) != null) {
                 allWords.add(word);
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             return null;
         }
         final String[] out = new String[allWords.size()];

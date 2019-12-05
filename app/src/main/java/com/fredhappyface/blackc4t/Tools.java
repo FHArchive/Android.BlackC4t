@@ -35,7 +35,10 @@ final class Tools {
 
     }
 
-    static StringBuffer doTwoKey(String keyString1, String keyString2, final String messageString, final boolean decrypt){
+    static StringBuffer doTwoKey(final String pKeyString1, final String pKeyString2, final String messageString, final boolean decrypt){
+
+        String keyString1 = pKeyString1;
+        String keyString2 = pKeyString2;
 
         final StringBuffer outputString = new StringBuffer();
         int keyLength1 = keyString1.length();
@@ -54,7 +57,7 @@ final class Tools {
             }
             final int keyChar = keyString1.charAt(index) + keyString2.charAt(index);
             final char messageChar = messageString.charAt(index);
-            char outChar;
+            final char outChar;
             if (decrypt) {
                 outChar = (char) (messageChar - keyChar);
             } else {

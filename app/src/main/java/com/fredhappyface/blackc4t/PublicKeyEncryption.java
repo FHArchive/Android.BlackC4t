@@ -28,7 +28,7 @@ final class PublicKeyEncryption {
     Generates a number that may be prime
      */
     static int pkePrimeGen(final int min, final int max) {
-        return Tools.getRandomInt((int) (min / 2.0), (int) (max / 2.0)) * 2 + 1;
+        return (Tools.getRandomInt((int) (min / 2.0), (int) (max / 2.0)) << 1) + 1;
     }
 
 
@@ -62,7 +62,7 @@ final class PublicKeyEncryption {
         }
         if (exp % 2 == 0) {
             final int expMod = pkeExpMod(base, (exp / 2), mod);
-            return (int) (Math.pow(expMod, 2) % mod);
+            return (int) (StrictMath.pow(expMod, 2) % mod);
         } else {
             return (base * pkeExpMod(base, (exp - 1), mod)) % mod;
         }
@@ -76,14 +76,14 @@ final class PublicKeyEncryption {
         int prime0;
         int prime1;
         do {
-            prime0 = PublicKeyEncryption.pkePrimeGen(64, 256);
-            isPrime = PublicKeyEncryption.pkeIsPrime(prime0);
+            prime0 = pkePrimeGen(64, 256);
+            isPrime = pkeIsPrime(prime0);
         }
         while (!isPrime);
 
         do {
-            prime1 = PublicKeyEncryption.pkePrimeGen(64, 256);
-            isPrime = PublicKeyEncryption.pkeIsPrime(prime1);
+            prime1 = pkePrimeGen(64, 256);
+            isPrime = pkeIsPrime(prime1);
         }
         while (!isPrime);
             /*
@@ -105,7 +105,7 @@ final class PublicKeyEncryption {
         int publicKeyInt;
         do {
             publicKeyInt = Tools.getRandomInt(1, eulerTotient);
-            factor = PublicKeyEncryption.pkeHighestCommonFactor(publicKeyInt, eulerTotient);
+            factor = pkeHighestCommonFactor(publicKeyInt, eulerTotient);
         }
         while (factor != 1);
 

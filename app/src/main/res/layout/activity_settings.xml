@@ -5,44 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.View"
     tools:context=".Activity_Settings">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="vertical">
 
         <TextView
             android:text="@string/settings_head"
             style="@style/heading_text_style" />
 
-        <TextView
-            android:text="@string/settings_description"
-            style="@style/body_text_style" />
-
-        <TextView
-            android:text="@string/settings_theme"
-            style="@style/heading_text_style" />
-
         <RadioGroup
             android:id="@+id/theme"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <RadioButton
-                android:text="@string/settings_theme_radio1"
-                style="@style/radio_style"
-                android:layout_weight="1" />
+                    android:text="@string/settings_theme_radio1"
+                    style="@style/radio_style"
+                    android:drawableEnd="@drawable/light"
+                    android:layout_weight="1"/>
+
 
             <RadioButton
                 android:text="@string/settings_theme_radio2"
                 style="@style/radio_style"
+                android:drawableEnd="@drawable/dark"
                 android:layout_weight="1" />
 
             <RadioButton
                 android:text="@string/settings_theme_radio3"
                 style="@style/radio_style"
+                android:drawableEnd="@drawable/black"
+                android:layout_weight="1" />
+            <RadioButton
+                android:text="@string/settings_theme_radio4"
+                style="@style/radio_style"
+                android:drawableEnd="@drawable/system"
                 android:layout_weight="1" />
         </RadioGroup>
 
