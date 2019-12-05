@@ -23,7 +23,7 @@ and password generators that are written in Java.
 This app has been written in the Java programming language with the Android
 Studio IDE.
 - The target SDK version is 29 (Android 10.0)
-- The minimum SDK version is 22 (Android 7.0)
+- The minimum SDK version is 22 (Android 5.1)
 
 ### Download Android Studio
 Download the Android Studio IDE from <https://developer.android.com/studio/>.
