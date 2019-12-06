@@ -20,12 +20,38 @@ and password generators that are written in Java.
 ## Language Information
 
 ### Java and Android Version
-This app has been written in the Java programming language with the Android
+This app has been written in the Java 8 programming language with the Android
 Studio IDE.
 - The target SDK version is 29 (Android 10.0)
 - The minimum SDK version is 22 (Android 5.1)
 
-### Download Android Studio
+
+#### Install Java 8
+##### OpenJDK8 (recommended)
+Install with chocolatey
+```powershell
+choco install openjdk8
+```
+##### OracleJDK8
+Install with chocolatey
+```powershell
+choco install jdk8
+```
+or download and install from
+<https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html>
+
+#### Download an IDE
+##### Download Intellij Community
+Download the Intellij Community from <https://www.jetbrains.com/idea/download/>.
+For Windows, double click the downloaded .exe file and follow the instructions
+provided by the installer. Install the Android SDK through Intellij.
+
+Install with chocolatey
+```powershell
+choco install intellijidea-community
+```
+
+##### Download Android Studio
 Download the Android Studio IDE from <https://developer.android.com/studio/>.
 For Windows, double click the downloaded .exe file and follow the instructions
 provided by the installer - it will download the Android emulator and the
@@ -45,36 +71,32 @@ Android SDK. Additional information can be found at
 2. Search for BlackC4t
 #### Or
 [<img src="readme-assets/badges/google-play-download.png"
-	  alt="Get it on Google Play" height="80">]
-	  (https://play.google.com/store/apps/)
+alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/)
 
 Follow the link to the listing on Google Play by clicking on the badge above,
 then download/ install
 -->
-
 
 ### Available at Amazon Appstore
 1. Open the Amazon Appstore (can be downloaded from
 <https://www.amazon.co.uk/androidapp>)
 2. Search for BlackC4t
 #### Or
-[<img src="readme-assets/badges/amazon-appstore-download.png"
-	  alt="Available at Amazon Appstore"   height="80">]
-	  (http://www.amazon.com/gp/mas/dl/android?p=com.fredhappyface.blackc4t&ref=mas_pm_BlackC4t)
+[<img src="readme-assets/badges/amazon-appstore-download.png" alt="Available
+at Amazon Appstore" height="80">
+](http://www.amazon.com/gp/mas/dl/android?p=com.fredhappyface.blackc4t&ref=mas_pm_BlackC4t)
 
 Follow the link to the listing on the Amazon Appstore by clicking on the badge
 above, then download/ install
 
-
 ### Download the APK
 1. Navigate to the BlackC4t-APKs directory
-
 2. Select the debug or release APK depending on your preference. Note that the
 filenames are in the form: app-(debug/release)-yyyymmdd.apk (I would recommend
 downloading the most recent release APK)
 #### Or
-[<img src="readme-assets/badges/direct-apk-download.png"
-	alt="Direct apk download"   height="80">](/APKs)
+[<img src="readme-assets/badges/direct-apk-download.png" alt="Direct apk
+download" height="80">](/APKs)
 
 Follow the link to the APKs directory by clicking on the badge above, then
 select the preferred APK
