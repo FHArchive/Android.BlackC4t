@@ -81,7 +81,9 @@ then download/ install
 1. Open the Amazon Appstore (can be downloaded from
 <https://www.amazon.co.uk/androidapp>)
 2. Search for BlackC4t
+
 **Or**
+
 [<img src="readme-assets/badges/amazon-appstore-download.png" alt="Available
 at Amazon Appstore" height="80">
 ](http://www.amazon.com/gp/mas/dl/android?p=com.fredhappyface.blackc4t&ref=mas_pm_BlackC4t)
@@ -94,7 +96,9 @@ above, then download/ install
 2. Select the debug or release APK depending on your preference. Note that the
 filenames are in the form: app-(debug/release)-yyyymmdd.apk (I would recommend
 downloading the most recent release APK)
+
 **Or**
+
 [<img src="readme-assets/badges/direct-apk-download.png" alt="Direct apk
 download" height="80">](/APKs)
 
