@@ -2,8 +2,8 @@ package com.fredhappyface.blackc4t;
 
 final class PublicKeyEncryption {
 
-    private PublicKeyEncryption(){
-        throw new java.lang.UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    private PublicKeyEncryption() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
     /*
@@ -32,7 +32,6 @@ final class PublicKeyEncryption {
     }
 
 
-
     /*
     Finds the Highest Common Factor or argument value1 and argument value2
      */
@@ -57,7 +56,7 @@ final class PublicKeyEncryption {
     }
 
     static int pkeExpMod(final int base, final int exp, final int mod) {
-        if (exp == 0){
+        if (exp == 0) {
             return 1;
         }
         if (exp % 2 == 0) {
@@ -68,7 +67,7 @@ final class PublicKeyEncryption {
         }
     }
 
-    static int[] generate(){
+    static int[] generate() {
         /*
             Generate the seed prime numbers
              */
@@ -109,6 +108,6 @@ final class PublicKeyEncryption {
         }
         while (factor != 1);
 
-        return new int[] {modulusInt, eulerTotient, publicKeyInt};
+        return new int[]{modulusInt, eulerTotient, publicKeyInt};
     }
 }

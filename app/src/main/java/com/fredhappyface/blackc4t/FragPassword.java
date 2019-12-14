@@ -8,11 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Frag_2KOTP extends Fragment {
+public class FragPassword extends Fragment {
 
     @Nullable
     @Override
     public final View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable final Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.frag_2kotp, container, false);
+        return inflater.inflate(R.layout.frag_password, container, false);
     }
 }

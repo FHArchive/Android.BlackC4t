@@ -3,18 +3,27 @@ package com.fredhappyface.blackc4t;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import androidx.annotation.Nullable;
 import androidx.preference.PreferenceManager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.text.HtmlCompat;
 
-public abstract class Abstract_Activity extends AppCompatActivity {
+/**
+ * Provides theming capabilities for my activity classes. These are applied in the onCreate method. This is also where
+ * the title is reset. This is due to an issue with applying a color to the titlebar
+ */
+public abstract class ActivityAbstract extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
     int currentTheme;
 
-
+    /**
+     * Triggered when the activity is created, sets the title to BlackC4t with a color of #ABB2BF. Sets the theme to one
+     * that the user selected
+     * @param savedInstanceState activity saved data
+     */
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle(HtmlCompat.fromHtml("<font color='#ABB2BF'>BlackC4t</font>", HtmlCompat.FROM_HTML_MODE_LEGACY));
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -44,6 +53,10 @@ public abstract class Abstract_Activity extends AppCompatActivity {
 
     }
 
+    /**
+     * Triggered when an activity is resumed. If the theme differs from the currently active theme, then the activity is
+     * recreated
+     */
     @Override
     protected final void onResume() {
         super.onResume();

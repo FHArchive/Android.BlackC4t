@@ -2,6 +2,8 @@ package com.fredhappyface.blackc4t;
 
 import android.content.Intent;
 import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.google.android.material.tabs.TabLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -21,13 +23,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-
-public class Activity_Main extends Abstract_Activity {
+/**
+ * Handles each tab and the various functions within these. Such as the two key otp
+ */
+public class ActivityMain extends ActivityAbstract {
 
     private static final Locale LOCALE = Locale.ENGLISH;
 
+    /**
+     * Sets the content to include the layout file 'activity_main' sets a pager containing fragments
+     *
+     * @param savedInstanceState activity saved data
+     */
     @Override
-    protected final void onCreate(final Bundle savedInstanceState) {
+    protected final void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -51,38 +60,40 @@ public class Activity_Main extends Abstract_Activity {
             page = Integer.parseInt(data);
         }
         mViewPager.setCurrentItem(page);
-
-
     }
 
 
-    /*
-    Create the overflow menu
+    /**
+     * Create the overflow menu (this is rendered as buttons in the top right of the application)
+     *
+     * @param menu the menu to apply the menu_main layout to
+     * @return bool true for success
      */
     @Override
-    public final boolean onCreateOptionsMenu(final Menu menu) {
+    public final boolean onCreateOptionsMenu( @NonNull final Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
-    /*
-    Do when an option has been selected
+    /**
+     * Trigger actions as set here when certain menu items are selected
+     *
+     * @param item the menu item e.g. if a menu holds 'foo' and 'bar' the item is one of 'foo' or 'bar'
+     * @return selected item, but more likely a boolean 'success' response
      */
     @Override
-    public final boolean onOptionsItemSelected(final MenuItem item) {
-        // Handle action bar item clicks here.
+    public final boolean onOptionsItemSelected(@NonNull final MenuItem item) {
+        /*
+         * Get the item id and check it 'matches' with resource ids as below. If there is a match, start an activity
+         */
         final int itemId = item.getItemId();
-
-
         if (itemId == R.id.action_settings) {
-            startActivity(new Intent(this, Activity_Settings.class));
+            startActivity(new Intent(this, ActivitySettings.class));
             return true;
         }
-
-
         if (itemId == R.id.action_about) {
-            startActivity(new Intent(this, Activity_About.class));
+            startActivity(new Intent(this, ActivityAbout.class));
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -108,18 +119,17 @@ public class Activity_Main extends Abstract_Activity {
             final Fragment fragment;
             switch (position) {
                 case 0:
-                    fragment = new Frag_OTP();
+                    fragment = new FragOTP();
                     break;
                 case 1:
-                    fragment = new Frag_2KOTP();
+                    fragment = new Frag2KOTP();
                     break;
                 case 2:
-                    fragment = new Frag_PKE();
+                    fragment = new FragPKE();
                     break;
                 default:
-                    fragment = new Frag_Password();
+                    fragment = new FragPassword();
                     break;
-
             }
             return fragment;
         }
@@ -134,7 +144,7 @@ public class Activity_Main extends Abstract_Activity {
     }
 
 
-    public final void runOTP(final View view) {
+    public final void runOTP(@NonNull final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -179,7 +189,7 @@ public class Activity_Main extends Abstract_Activity {
     }
 
 
-    public final void runTwoKey(final View view) {
+    public final void runTwoKey(@NonNull final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -217,7 +227,7 @@ public class Activity_Main extends Abstract_Activity {
         For each character in the message, shift the value by key[index]
          */
         if (!error) {
-            outputString = Tools.doTwoKey(keyString1, keyString2,messageString, decrypt);
+            outputString = Tools.doTwoKey(keyString1, keyString2, messageString, decrypt);
         }
 
         /*
@@ -227,7 +237,7 @@ public class Activity_Main extends Abstract_Activity {
 
     }
 
-    public final void runPKE(final View view) {
+    public final void runPKE(@NonNull final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -312,12 +322,10 @@ public class Activity_Main extends Abstract_Activity {
         Write to output
          */
         output.setText(outString.toString());
-
     }
 
 
-
-    public final void runPassword(final View view) {
+    public final void runPassword(@NonNull final View view) {
         /*
         Get objects, strings and lengths
          */
@@ -373,8 +381,6 @@ public class Activity_Main extends Abstract_Activity {
         }
 
         output.setText(outputString);
-
-
     }
 
 
@@ -400,10 +406,6 @@ public class Activity_Main extends Abstract_Activity {
             out[index] = allWords.get(index);
         }
         return out;
-
     }
-
-
-
 
 }

@@ -4,11 +4,11 @@ import java.security.SecureRandom;
 
 final class Tools {
 
-    private Tools(){
-        throw new java.lang.UnsupportedOperationException("This is a utility class and cannot be instantiated");
+    private Tools() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
-    static StringBuffer doOneTimePad(String keyString, final String messageString, final boolean decrypt){
+    static StringBuffer doOneTimePad(String keyString, final String messageString, final boolean decrypt) {
 
         final StringBuffer outputString = new StringBuffer();
         int keyLength = keyString.length();
@@ -35,7 +35,7 @@ final class Tools {
 
     }
 
-    static StringBuffer doTwoKey(final String pKeyString1, final String pKeyString2, final String messageString, final boolean decrypt){
+    static StringBuffer doTwoKey(final String pKeyString1, final String pKeyString2, final String messageString, final boolean decrypt) {
 
         String keyString1 = pKeyString1;
         String keyString2 = pKeyString2;
@@ -71,8 +71,7 @@ final class Tools {
     }
 
 
-
-    static StringBuffer doPassword(final int wordsInt, final int numbersInt, final int symbolsInt, final String... allWords){
+    static StringBuffer doPassword(final int wordsInt, final int numbersInt, final int symbolsInt, final String... allWords) {
 
         final StringBuffer outputString = new StringBuffer();
 
@@ -96,9 +95,7 @@ final class Tools {
         }
 
         return outputString;
-
     }
-
 
 
     /*
@@ -108,5 +105,4 @@ final class Tools {
         final SecureRandom random = new SecureRandom();
         return (int) ((random.nextDouble() * (max - min)) + min);
     }
-
 }

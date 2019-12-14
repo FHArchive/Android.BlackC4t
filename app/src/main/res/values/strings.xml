@@ -62,7 +62,6 @@
     <string name="settings_theme_radio2">Dark</string>
     <string name="settings_theme_radio3">Black</string>
     <string name="settings_theme_radio4">Auto</string>
-    <string name="settings_theme_button">💾 Save Theme</string>
 
 
 </resources>

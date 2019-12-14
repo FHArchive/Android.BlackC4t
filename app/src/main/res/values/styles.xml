@@ -42,9 +42,7 @@
         <item name="foregroundColorSecondary">@color/lightText</item>
     </style>
 
-
-
-    <style name="image_container_style">
+    <style name="base_container_style">
         <item name="android:layout_marginLeft">@dimen/text_content_margin</item>
         <item name="android:layout_marginRight">@dimen/text_content_margin</item>
         <item name="android:layout_marginTop">@dimen/text_content_margin_vertical</item>
@@ -53,7 +51,19 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="heading_text_style" parent="image_container_style">
+    <style name="image_container_style" parent="Widget.MaterialComponents.CardView" >
+        <item name="android:layout_marginLeft">@dimen/text_content_margin</item>
+        <item name="android:layout_marginRight">@dimen/text_content_margin</item>
+        <item name="android:layout_marginTop">@dimen/text_content_margin_vertical</item>
+        <item name="android:layout_marginBottom">@dimen/text_content_margin_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">8dp</item>
+    </style>
+
+    <style name="heading_text_style" parent="base_container_style">
         <item name="android:textColor">?attr/foregroundColorPrimary</item>
         <item name="android:textSize">@dimen/text_size_h1</item>
         <item name="android:fontFamily">@font/firasans</item>
@@ -67,12 +77,6 @@
         <item name="android:textSize">@dimen/text_size_body</item>
     </style>
 
-
-    <style name="radio_style" parent="body_text_style">
-        <item name="android:buttonTint">?attr/foregroundColorAccent</item>
-        <item name="android:maxHeight">@dimen/radio_height</item>
-
-    </style>
 
     <style name="code_text_style" parent="body_text_style">
         <item name="android:textColorHint">?attr/foregroundColorSecondary</item>
